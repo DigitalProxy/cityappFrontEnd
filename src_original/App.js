@@ -7,11 +7,15 @@ import { Router } from "@reach/router";
 import LoadingPage from "./components/LoadingPage";
 import LoginPage from "./components/LoginPage";
 import LandingPage from "./components/LandingPage";
-import MenuPage from "./components/MenuPage";
 import FeedPage from "./components/FeedPage";
-import ProfilePage from "./components/ProfilePage";
-import PostPage from "./components/PostPage";
-import ScreenSaverPage from "./components/ScreenSaverPage";
+import AccountPage from "./components/AccountPage";
+import PostPage from "./components/PostPage"
+import BioPage from "./components/BioPage";
+import ArtistsBioPage from "./components/ArtistsBioPage";
+import Like from "./components/Like";
+import Share from "./components/Share";
+import Comment from "./components/Comment";
+
 
 function App() {
   return (
@@ -20,11 +24,14 @@ function App() {
       <LoadingPage path="/loading"/>
       <LoginPage path="/login"/>
       <LandingPage path="/"/>
-      <MenuPage path="/account"/>
       <FeedPage path="/feed"/>
-      <ProfilePage path="/profile"/>
+      <AccountPage path="/account"/>
       <PostPage path="/post"/>
-      <ScreenSaverPage path="/screensaver"/>
+      <BioPage path="/bio"/>
+      <ArtistsBioPage path="/artistsbio"/>
+      <Like path="/like"/>
+      <Share path="/share"/>
+      <Comment path="/comment"/>
     </Router>
     </div>
   );
