@@ -14,7 +14,6 @@ class Artist extends Component {
           <h2>{this.props.name}</h2>
           <h2>{this.props.email}</h2>
           <h2>{this.props.type_id}</h2>
-          <h2>{this.props.color_id}</h2>
           <h2>{this.props.filepath}</h2>
           <h2>{this.props.id}</h2>
           {/* <img src={"./images/" + this.props.filepath} alt="creator image" /> */}
