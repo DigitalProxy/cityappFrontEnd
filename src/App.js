@@ -4,20 +4,18 @@ import './Styling.css';
 //PACKAGES
 import { Router } from "@reach/router";
 //PAGES & COMPONENTS
-import LoadingPage from "./components/LoadingPage";
+import LandingPage from './components/LandingPage'
 import LoginPage from "./components/LoginPage";
-import LandingPage from "./components/LandingPage";
 import MenuPage from "./components/MenuPage";
 import FeedPage from "./components/FeedPage";
 import ProfilePage from "./components/ProfilePage";
 import PostPage from "./components/PostPage";
-import ScreenSaverPage from "./components/ScreenSaverPage";
+import ScreenSaverPage from "./components/screensaverpage/ScreenSaverPage";
 
 function App() {
   return (
     <div className="App">
-    <Router>  
-      <LoadingPage path="/loading"/>
+    <Router>
       <LoginPage path="/login"/>
       <LandingPage path="/"/>
       <MenuPage path="/account"/>

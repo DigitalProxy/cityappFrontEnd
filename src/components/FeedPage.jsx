@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 import FeedCard from "./FeedCard";
-import MenuPage from "./MenuPage";
+// import FloatingMenu from "./FloatingMenu";
 
 export default class FeedPage extends Component {
   render() {
     return (
-      <div>
+      <div className="feedBody">
         <h1>FEED</h1>
-        <MenuPage />
+        <h1>BUILDINGS</h1>
+        {/* <FloatingMenu /> */}
         <FeedCard />
       </div>
     );
