@@ -12,23 +12,25 @@ class FeedCard extends Component {
     super(props);
 
     this.state = {
-      url: "http://localhost:4000/api/buildings",
-      buildings: [],
+      url: "http://localhost:4000/api/bss",
+      fullStack: [],
     };
   }
 
   componentDidMount() {
     axios.get(this.state.url).then((res) => {
+      console.log("app>>>>>>>>")
       console.log(res.data);
-      this.setState({ buildings: res.data });
+      this.setState({ fullStack: res.data.result });
+      console.log(res.data.result)
+      console.log("app<<<<<<<<")
     });
   }
 
   render() {
-    console.log(this.state.buildings);
     return (
       <div>
-        {this.state.buildings.map((item, index) => {
+        {this.state.fullStack.map((item, index) => {
           return (
             <div>
               <Collection

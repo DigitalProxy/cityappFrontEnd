@@ -5,9 +5,9 @@ import { navigate } from "@reach/router";
 // import * as Globals from "../utils/globals.js";
 import Footer from "./Footer";
 import Modal from "./Modal";
-import Button from "@material-ui/core/Button";
 
-class WriterForm extends Component {
+
+class UserForm extends Component {
   constructor(props) {
     super(props);
     // state matches express writers model - the model is case-sensitive
@@ -125,4 +125,4 @@ class WriterForm extends Component {
     );
   }
 }
-export default WriterForm;
+export default UserForm;

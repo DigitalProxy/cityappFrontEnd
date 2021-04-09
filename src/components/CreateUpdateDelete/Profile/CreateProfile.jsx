@@ -1,22 +1,24 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import Footer from "./Footer";
 
-export default class EditWriter extends Component {
+export default class CreateUser extends Component {
   constructor(props) {
     super(props);
 
+
+    //*********WRONG SCHEMA************/
     this.state = {
-      first_name: "",
-      last_name: "",
-      DOB: "",
-      book: "",
       id: this.props.location.state.id,
+      title: "",
+      name: "",
+      email: "",
+      type_id: "",
+      filepath: "",
       showmodal: false,
       success: false,
-      filepath: "",
     };
     console.log(this.state.id);
   }
@@ -27,17 +29,18 @@ export default class EditWriter extends Component {
         console.log(this.state.id);
         console.table(res.data);
         this.setState({
-          first_name: res.data.first_name,
-          last_name: res.data.last_name,
-          DOB: res.data.DOB,
-          book: res.data.book,
           id: res.data.id,
+          title: res.data.title,
+          name: res.data.name,
+          email: res.data.email,
+          type_id: res.data.type_id,
+          filepath: res.data.type_id,
         });
       }
     );
   }
 
-  updateWriter = (e) => {
+  updateUser = (e) => {
     e.preventDefault();
 
     Axios.put(

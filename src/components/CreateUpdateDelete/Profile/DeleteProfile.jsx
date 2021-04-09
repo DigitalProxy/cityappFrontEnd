@@ -1,3 +1,4 @@
+
 deleteWriter = (e) => {
   console.log("deleting ", this.props.id);
   axios

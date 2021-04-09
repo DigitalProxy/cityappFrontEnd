@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import Footer from "./Footer";
 
 export default class EditWriter extends Component {

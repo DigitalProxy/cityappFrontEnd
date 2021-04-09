@@ -3,7 +3,7 @@ import { Router, Link, navigate } from "@reach/router";
 import axios from "axios";
 
 //single card
-class Writers extends Component {
+class User extends Component {
   shipID = (evt) => {
     console.log(this.props.id);
     this.setState({ id: this.props.id });
@@ -13,16 +13,16 @@ class Writers extends Component {
     return (
       <div key={this.props.key}>
         <div>
-          <h4>Writer</h4>
+          <h4>User</h4>
           {/* <UserButton/> */}
-          <h2>{this.props.firstname}</h2>
-          <h2>{this.props.lastname}</h2>
+          <h2>{this.props.title}</h2>
+          <h2>{this.props.name}</h2>
           <Link
             onClick={this.shipID}
             state={{ id: this.props.id }}
-            to="/writersbio"
+            to="/artistsbio"
           >
-            <h4>Select Writer</h4>
+            <h4>Select User</h4>
           </Link>
           <br />
         </div>
@@ -30,4 +30,4 @@ class Writers extends Component {
     );
   }
 }
-export default Writers;
+export default User;

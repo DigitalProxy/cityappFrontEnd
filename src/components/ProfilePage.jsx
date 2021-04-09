@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 import MenuPage from "./MenuPage";
+import BioPage from "./BioPage";
 
 export default class ProfilePage extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class ProfilePage extends Component {
       <div>
         <h1>CREATE/UPDATE PROFILE</h1>
         <MenuPage />
+        <BioPage />
       </div>
     );
   }
