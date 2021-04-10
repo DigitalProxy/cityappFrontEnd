@@ -12,7 +12,7 @@ var loginStyle = {
   flexDirection: "column",
 
   margin: "0 50px",
-  marginTop: "80%",
+  marginTop: "60%",
 }
 
 var bottomText = {
@@ -28,12 +28,28 @@ var color = {
   marginRight: "5px"
 }
 
+var loginInput = {
+  backgroundColor: "#CE2E4A",
+  
+}
+
+var loginButton = {
+  backgroundColor: "#FF5F5F",
+  color: "white"
+}
+
 
 export default class LoginPage extends Component {
   render() {
     return (
+      
       <div className="loginBody">
         {/* <h1>LOGIN/LOGOUT</h1> */}
+
+        {/* <div className="cover">
+          
+        </div> */}
+ 
 
         <svg style={spacing} width="127" height="189" viewBox="0 0 127 189" fill="none" xmlns="http://www.w3.org/2000/svg">
 
@@ -50,7 +66,7 @@ export default class LoginPage extends Component {
           <circle cx="63.4999" cy="151.5" r="1.66495" fill="#1F1F1F" />
           <circle cx="62.7164" cy="150.521" r="0.881443" fill="white" />
 
-
+   
           {/* whites of eye */}
           <path d="M34.5513 34.9793L12.2368 57.2937C14.6492 62.9225 19.9564 74.7833 21.8863 77.1957C23.8162 79.6081 33.5461 85.0359 38.1698 87.4483C43.5976 89.2575 54.6945 92.8761 55.6595 92.8761C56.6244 92.8761 72.9482 91.6699 80.9894 91.0668L103.304 75.9895L117.778 63.3246C115.768 58.7008 111.385 48.9709 109.938 47.0411C108.129 44.6287 100.891 36.7885 97.876 34.9793C94.8605 33.1701 86.4172 25.9329 82.7987 25.9329C79.1801 25.9329 67.7214 23.5205 65.309 22.9174C62.8966 22.3143 50.8348 25.9329 49.6286 25.9329C48.6636 25.9329 39.175 31.9638 34.5513 34.9793Z" fill="white" />
 
@@ -68,18 +84,27 @@ export default class LoginPage extends Component {
           </mask>
 
           {/* eyelid */}
-          <g mask="url(#mask0)">
-            <ellipse cx="61.5" cy="15.5" rx="58.5" ry="9.5" fill="#C42944" />
-            {/* <ellipse cx="56.5" cy="53.5" rx="58.5" ry="47.5" fill="#B5243D" /> */}
+          <g  mask="url(#mask0)">
+            {/* <ellipse cx="61.5" cy="15.5" rx="58.5" ry="9.5" fill="#C42944" /> */}
+            <ellipse className="eyelid-animation" cx="56.5" cy="53.5" rx="58.5" ry="47.5" fill="#B5243D" />
+            {/* <ellipse cx="61.5" cy="15.5" rx="58.5" ry="9.5" fill="#B5243D" /> */}
+            
           </g>
+          
+
+          
+      
           <path fill-rule="evenodd" clip-rule="evenodd" d="M63.5 117C95.8087 117 122 90.8087 122 58.5C122 26.1913 95.8087 0 63.5 0C31.1913 0 5 26.1913 5 58.5C5 90.8087 31.1913 117 63.5 117ZM14.6496 57.8968C21.2548 48.0891 40.176 28.5162 63.1986 28.3464C86.2211 28.5162 105.142 48.0891 111.748 57.8968C105.142 67.7046 86.2211 87.2774 63.1986 87.4473C40.176 87.2774 21.2548 67.7046 14.6496 57.8968Z" fill="#CE2E4A" />
         </svg>
 
         <form style={loginStyle} action="/feed">
           
-          <input type="text"/>
-          <input type="text"/>
-          <input type="submit" value="LOG IN"></input>
+          <input style={loginInput} type="text" placeholder="EMAIL"/>
+          <br/>
+          <input style={loginInput} type="password" placeholder="PASSWORD"/>
+          <br/>
+          <input style={loginButton} type="submit" value="LOG IN"></input>
+          <br/>
           <div style={bottomText}>
           <p style={color}>not a member yet?</p>
           <p>SIGN UP</p>

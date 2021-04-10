@@ -63,13 +63,8 @@ class FeedCard extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div>
         {this.state.fullStack.map((item, index) => {
-=======
-      <div style={Style1}>
-        {this.state.buildings.map((item, index) => {
->>>>>>> 2dc2b12584610994feccdda7f877e69377162d00
           return (
             <div>
               
