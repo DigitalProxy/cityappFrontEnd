@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import PostForm from "./PostForm";
 
 export default class CreatePost extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: 3,
       title: "",
       name: "",
       email: "",
       type_id: "",
-      filepath: "", 
+      filepath: "",
       showmodal: false,
       success: false,
     };
@@ -22,11 +22,11 @@ export default class CreatePost extends Component {
       (res) => {
         console.table(res.data);
         this.setState({
-        id: res.data.id,
-        title: res.data.title,
-        email: res.data.email,
-        type_id: res.data.type_id,
-        filepath: res.data.filepath,
+          id: res.data.id,
+          title: res.data.title,
+          email: res.data.email,
+          type_id: res.data.type_id,
+          filepath: res.data.filepath,
         });
       }
     );
@@ -34,6 +34,8 @@ export default class CreatePost extends Component {
 
   updatePost = (e) => {
     e.preventDefault();
+
+    //get
 
     Axios.put(
       `http://localhost:4000/api/buildings/${this.state.id}`,
@@ -64,7 +66,7 @@ export default class CreatePost extends Component {
     this.setState({ type_id: e.target.value });
   };
 
-  handleFilepath = (e) => {
+  handleFilePath = (e) => {
     this.setState({ filepath: e.target.value });
   };
 
@@ -78,72 +80,8 @@ export default class CreatePost extends Component {
     return (
       <div className="form-wrapper">
         <h1>Create Post:</h1>
-
-        <form className="special" onSubmit={this.updatePost}>
-          <label>Title:</label>
-          <br/>
-          <input
-            type="text"
-            name="title"
-            onChange={this.handleTitle}
-            defaultValue={this.state.title}
-          />
-        <br/>
-          <label>Name:</label>
-          <br/>
-          <input
-            type="text"
-            name="name"
-            onChange={this.handleName}
-            defaultValue={this.state.name}
-          />
-        <br/>
-          <label>Email:</label>
-          <br/>
-          <input
-            type="text"
-            name="email"
-            onChange={this.handleEmail}
-            defaultValue={this.state.email}
-          />
-            <br/>
-
-          <label>Category:</label>
-          <br/>
-
-          <label>Buildings:</label>
-          <input
-            type="radio"
-            id="type_id"
-            name="category"
-            value="1"
-            onChange={this.handleTypeID}
-            defaultValue={this.state.typeID}
-          />
-          <br/>
-          <label>Streets:</label>
-          <input
-            type="radio"
-            id="type_id"
-            name="category"
-            value="2"
-            onChange={this.handleTypeID}
-            defaultValue={this.state.typeID}
-          />
-          <br/>
-          <label>Surroundings:</label>   
-          <input
-            type="radio"
-            id="type_id"
-            name="category"
-            value="3"
-            onChange={this.handleTypeID}
-            defaultValue={this.state.typeID}
-          />
-
-          <br />
-          <button type="submit">Create post</button>
-        </form>
+        <PostForm />
+        <button type="submit">Create post</button>
       </div>
     );
   }

@@ -2,46 +2,54 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
 import Modal from "../Modal";
-import Footer from "./Footer";
 
-export default class EditWriter extends Component {
+export default class UpdateProfile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      first_name: "",
-      last_name: "",
-      DOB: "",
-      book: "",
-      id: this.props.location.state.id,
-      showmodal: false,
-      success: false,
-      filepath: "",
+      _id: String,
+      username: String,
+      name: String,
+      email: String,
+      city: String,
+      country: String,
+      about: String,
+      instagram: String,
+      twitter: String,
+      fb: String,
+      website: String,
     };
     console.log(this.state.id);
   }
 
+  //this needs to be non-id call - it needs to populate the whole user DB and then add a new user object
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/writers/${this.state.id}`).then(
+    Axios.get(`http://localhost:4000/api/users/${this.state.id}`).then(
       (res) => {
         console.log(this.state.id);
         console.table(res.data);
         this.setState({
-          first_name: res.data.first_name,
-          last_name: res.data.last_name,
-          DOB: res.data.DOB,
-          book: res.data.book,
-          id: res.data.id,
+          _id: res.data._id,
+          username: res.data.username,
+          name: res.data.name,
+          email: res.data.name,
+          country: res.data.email,
+          about: res.data.about,
+          instagram: res.data.instagram,
+          twitter: res.data.twitter,
+          fb: res.data.fb,
+          website: res.data.website,
         });
       }
     );
   }
 
-  updateWriter = (e) => {
+  createUser = (e) => {
     e.preventDefault();
 
     Axios.put(
-      `http://localhost:4000/api/writers/${this.state.id}`,
+      `http://localhost:4000/api/users/${this.state.id}`,
       this.state
     ).then((res) => {
       console.log(res);
@@ -54,23 +62,38 @@ export default class EditWriter extends Component {
     });
   };
 
-  handleFirstName = (e) => {
-    this.setState({ first_name: e.target.value });
+  handleUsername = (e) => {
+    this.setState({ username: e.target.value });
   };
-  handleLastName = (e) => {
-    this.setState({ last_name: e.target.value });
+  handleName = (e) => {
+    this.setState({ name: e.target.value });
   };
-  handleDOB = (e) => {
-    this.setState({ DOB: e.target.value });
-  };
-
-  handleBookName = (e) => {
-    this.setState({ book: e.target.value });
+  handleEmail = (e) => {
+    this.setState({ email: e.target.value });
   };
 
-  //this sets the filepath state from the submit click event
-  handleFileUpload = (e) => {
-    this.setState({ filepath: e.target.value });
+  handleCountry = (e) => {
+    this.setState({ country: e.target.value });
+  };
+
+  handleAbout = (e) => {
+    this.setState({ about: e.target.value });
+  };
+
+  handleInstagram = (e) => {
+    this.setState({ instagram: e.target.value });
+  };
+
+  handleTwitter = (e) => {
+    this.setState({ twitter: e.target.value });
+  };
+
+  handleFB = (e) => {
+    this.setState({ fb: e.target.value });
+  };
+
+  handleWebsite = (e) => {
+    this.setState({ website: e.target.value });
   };
 
   onClose = (e) => {
@@ -80,62 +103,92 @@ export default class EditWriter extends Component {
   };
 
   render() {
+    //is there a way to run a component for the form and then nest another component for the "defaultValue" that feeds a $var into for the different
+    //form inputs?  Prob not.
     return (
       <div className="form-wrapper">
-        <h1>Update Writer:</h1>
-        <form className="special" onSubmit={this.updateWriter}>
-          <label>First name:</label>
-          <input
-            type="text"
-            name="first_name"
-            onChange={this.handleFirstName}
-            // defaultValue={this.state.first_name}
-          />
-          <br />
-          <label>Last name:</label>
-          <input
-            type="text"
-            name="last_name"
-            onChange={this.handleLastName}
-            defaultValue={this.state.last_name}
-          />
-          <br />
-          <label>DOB:</label>
-          <input
-            type="text"
-            name="DOB"
-            onChange={this.handleDOB}
-            defaultValue={this.state.DOB}
-          />
-          <br />
-          <label>Books:</label>
-          <input
-            type="text"
-            name="book"
-            onChange={this.handleBookName}
-            defaultValue={this.state.book}
-          />
-          <br />
-          <label>Image</label>
-          <input
-            type="text"
-            name="filepath"
-            //input is shipped to filepath in the state
-            value={this.state.filepath}
-            onChange={this.handleFileUpload}
-          />
-          <br />
-          <button type="submit">Update details</button>
-        </form>
+        <h1>Update Profile:</h1>
 
-        <Footer />
+        <form className="special" onSubmit={this.createUser}>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            onChange={this.handleUsername}
+            defaultValue={this.state.username}
+          />
+          <br />
+          <label>Name:</label>
+          <input
+            type="text"
+            name="name"
+            onChange={this.handleName}
+            defaultValue={this.state.name}
+          />
+          <br />
+          <label>Email:</label>
+          <input
+            type="text"
+            name="email"
+            onChange={this.handleEmail}
+            defaultValue={this.state.email}
+          />
+          <br />
+          <label>Country:</label>
+          <input
+            type="text"
+            name="country"
+            onChange={this.handleCountry}
+            defaultValue={this.state.country}
+          />
+          <br />
+          <label>About:</label>
+          <input
+            type="text"
+            name="about"
+            onChange={this.handleAbout}
+            defaultValue={this.state.about}
+          />
+          <br />
+          <label>Instagram:</label>
+          <input
+            type="text"
+            name="instagram"
+            onChange={this.handleInstagram}
+            defaultValue={this.state.instagram}
+          />
+          <br />
+          <label>Twitter:</label>
+          <input
+            type="text"
+            name="twitter"
+            onChange={this.handleTwitter}
+            defaultValue={this.state.twitter}
+          />
+          <br />
+          <label>Facebook:</label>
+          <input
+            type="text"
+            name="fb"
+            onChange={this.handleFB}
+            defaultValue={this.state.fb}
+          />
+          <br />
+          <label>Website:</label>
+          <input
+            type="text"
+            name="website"
+            onChange={this.handleWebsite}
+            defaultValue={this.state.website}
+          />
+          <br />
+          <button type="submit">Update Profile</button>
+        </form>
 
         <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
           <h1>Modal Window Info</h1>
-          <h1>Sucess</h1>
-          <p>
-            {this.state.first_name} {this.state.last_name} has been added.
-          </p>
+          <h1>Success</h1>
+          <p>{this.state.username} has been updated.</p>
         </Modal>
       </div>
     );

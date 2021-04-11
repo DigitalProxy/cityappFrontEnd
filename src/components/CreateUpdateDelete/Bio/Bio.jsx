@@ -2,34 +2,30 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-import Artist2 from "./Artist";
-import Artist from "./Artist";
+import User from "../Bio/User";
 
 class Bio extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: 1,
-      artistbio: {
-        title: "",
-        name: "",
-        email: "",
-        type_id: "",
-        filepath: "",
+      userbio: {
+        username: "",
+        about: "",
+        city: "",
+        country: "",
       },
-      //filepath data comes from the db call along with the other items
-      // console.log(this.props.location.state.id),
+      // console.log(this.props.location.state.username),
     };
   }
 
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/api/buildings/${this.state.id}`)
+      .get(`http://localhost:4000/api/buildings/${this.state.username}`)
       .then((res) => {
-        console.log(this.state.id);
+        console.log(this.state.username);
         console.log(res.data);
-        this.setState({ artistbio: res.data });
+        this.setState({ userbio: res.data });
       });
   }
 
@@ -39,21 +35,18 @@ class Bio extends Component {
   // };
 
   render() {
-    console.table(this.state.artistbio);
-    console.log(this.state.id);
+    console.table(this.state.userbio);
+    console.log(this.state.username);
 
     return (
       <div>
         {/* {item.first_name}
             {item.last_name} */}
-        <Artist
-          title={this.state.artistbio.title}
-          name={this.state.artistbio.name}
-          email={this.state.artistbio.email}
-          type={this.state.artistbio.type_id}
-          primarycolor={this.state.artistbio.color_id}
-          filepath={this.state.artistbio.filepath}
-          id={this.state.artistbio.id}
+        <User
+          username={this.state.userbio.username}
+          about={this.state.userbio.about}
+          city={this.state.userbio.city}
+          country={this.state.userbio.country}
         />
       </div>
     );

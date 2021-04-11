@@ -1,42 +1,44 @@
 import React, { Component } from "react";
 import Axios from "axios";
 
-export default class DeletePost extends Component {
+export default class CreatePost extends Component {
   constructor(props) {
     super(props);
-
+    // state matches express Buildings/Streets/Surroundings collection models
+    //runs baked-in datelog to hidden entry in MongoDB
     this.state = {
-      id: 1,
       title: "",
       name: "",
       email: "",
       type_id: "",
-      filepath: "", 
+      filepath: "",
+      id: Date.now(),
       showmodal: false,
       success: false,
     };
   }
 
+  //the id here needs to be a UUID
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/all/${this.state.id}`).then(
-      (res) => {
-        console.table(res.data);
-        this.setState({
+    Axios.get(`http://localhost:4000/api/bss/${this.state.id}`).then((res) => {
+      console.table(res.data);
+      this.setState({
         id: res.data.id,
         title: res.data.title,
         email: res.data.email,
         type_id: res.data.type_id,
         filepath: res.data.filepath,
-        });
-      }
-    );
+      });
+    });
   }
 
   updatePost = (e) => {
     e.preventDefault();
 
+    //put the Form input into the DB
+
     Axios.put(
-      `http://localhost:4000/api/all/${this.state.id}`,
+      `http://localhost:4000/api/$var/${this.state.id}`,
       this.state
     ).then((res) => {
       console.log(res);
@@ -64,7 +66,7 @@ export default class DeletePost extends Component {
     this.setState({ type_id: e.target.value });
   };
 
-  handleFilepath = (e) => {
+  handleFilePath = (e) => {
     this.setState({ filepath: e.target.value });
   };
 
@@ -74,57 +76,49 @@ export default class DeletePost extends Component {
     this.setState({ showmodal: false });
   };
 
-  deletePost = (e) => {
-    console.log("deleting ", this.props.id);
-    Axios
-      .delete(`http://localhost:4000/api/all/${this.state.id}`)
-      .then((res) => {
-        if (res.data.deletedCount >= 1) {
-          console.log(">>>> successful deletion");
-          this.props.refreshAll();
-        } else {
-          console.log(">>>> nothing deleted");
-        }
-      });
-    console.log("could I run the refresh in here?");
-  };
-  
   render() {
     return (
       <div className="form-wrapper">
-        <h1>Delete Post:</h1>
-
         <form className="special" onSubmit={this.updatePost}>
           <label>Title:</label>
-          <br/>
+          <br />
           <input
             type="text"
-            name="first_name"
+            name="title"
             onChange={this.handleTitle}
             defaultValue={this.state.title}
           />
-          <br/>   
+          <br />
           <label>Name:</label>
-          <br/>
+          <br />
           <input
             type="text"
-            name="last_name"
+            name="name"
             onChange={this.handleName}
             defaultValue={this.state.name}
           />
-          <br/>
+          <br />
           <label>Email:</label>
-          <br/>
+          <br />
           <input
             type="text"
             name="email"
             onChange={this.handleEmail}
             defaultValue={this.state.email}
           />
-          <br/>
+          <br />
+          <label>Image Link:</label>
+          <br />
+          <input
+            type="text"
+            id="filepath"
+            name="filepath"
+            onChange={this.handleFilePath}
+            defaultValue={this.state.filepath}
+          />
+          <br />
           <label>Category:</label>
-          <br/>
-
+          <br />
           <label>Buildings:</label>
           <input
             type="radio"
@@ -134,7 +128,7 @@ export default class DeletePost extends Component {
             onChange={this.handleTypeID}
             defaultValue={this.state.typeID}
           />
-          <br/>
+          <br />
           <label>Streets:</label>
           <input
             type="radio"
@@ -144,8 +138,8 @@ export default class DeletePost extends Component {
             onChange={this.handleTypeID}
             defaultValue={this.state.typeID}
           />
-          <br/>
-          <label>Surroundings:</label>   
+          <br />
+          <label>Surroundings:</label>
           <input
             type="radio"
             id="type_id"
@@ -156,13 +150,7 @@ export default class DeletePost extends Component {
           />
           <br />
         </form>
-
-        <button onClick={this.deletePost} action={this.props.refreshCollection}>
-        Delete Post
-        </button>;
       </div>
-
-      
     );
   }
 }
