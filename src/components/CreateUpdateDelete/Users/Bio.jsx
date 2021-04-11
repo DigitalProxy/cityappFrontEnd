@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-import User from "../Bio/User";
+import User from "../Users/User";
 
 class Bio extends Component {
   constructor(props) {
@@ -40,8 +40,6 @@ class Bio extends Component {
 
     return (
       <div>
-        {/* {item.first_name}
-            {item.last_name} */}
         <User
           username={this.state.userbio.username}
           about={this.state.userbio.about}

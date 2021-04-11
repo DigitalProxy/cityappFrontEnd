@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 
-//single card
+//single user
 class User extends Component {
   render() {
     return (
