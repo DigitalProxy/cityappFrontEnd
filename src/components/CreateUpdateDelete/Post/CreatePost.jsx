@@ -12,19 +12,20 @@ export default class CreatePost extends Component {
       email: "",
       type_id: "",
       filepath: "",
+      comment: "",
       showmodal: false,
       success: false,
     };
   }
 
+  
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/buildings/${this.state.id}`).then(
+    Axios.get(`http://localhost:4000/api/bss/${this.state.username}`).then(
       (res) => {
         console.table(res.data);
         this.setState({
-          id: res.data.id,
+          username: res.data.username,
           title: res.data.title,
-          email: res.data.email,
           type_id: res.data.type_id,
           filepath: res.data.filepath,
         });
@@ -32,13 +33,13 @@ export default class CreatePost extends Component {
     );
   }
 
-  updatePost = (e) => {
+  createPost = (e) => {
     e.preventDefault();
 
-    //get
-
+    //put new post into DB
+    //somehow need to use the type_id from the from form input into the put command (use variable?)
     Axios.put(
-      `http://localhost:4000/api/buildings/${this.state.id}`,
+      `http://localhost:4000/api/$cat/`,
       this.state
     ).then((res) => {
       console.log(res);

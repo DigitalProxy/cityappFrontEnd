@@ -7,19 +7,21 @@ export default class DeletePost extends Component {
     super(props);
 
     this.state = {
-      id: "1",
+      id: "",
       title: "",
       name: "",
       email: "",
       type_id: "",
       filepath: "",
+      comment: "",
       showmodal: false,
       success: false,
     };
   }
 
+  //assign filepath to create delete point
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/photos/${this.state.id}`).then(
+    Axios.get(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
       (res) => {
         console.table(res.data);
         this.setState({
@@ -60,8 +62,8 @@ export default class DeletePost extends Component {
   };
 
   deletePost = (e) => {
-    console.log("deleting ", this.props.id);
-    Axios.delete(`http://localhost:4000/api/all/${this.state.id}`).then(
+    console.log("deleting ", this.props.filepath);
+    Axios.delete(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
       (res) => {
         if (res.data.deletedCount >= 1) {
           console.log(">>>> successful deletion");

@@ -25,9 +25,9 @@ export default class UpdateProfile extends Component {
 
   //this needs to be non-id call - it needs to populate the whole user DB and then add a new user object
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/users/${this.state.id}`).then(
+    Axios.get(`http://localhost:4000/api/users/${this.state.username}`).then(
       (res) => {
-        console.log(this.state.id);
+        console.log(this.state.username);
         console.table(res.data);
         this.setState({
           _id: res.data._id,
@@ -49,7 +49,7 @@ export default class UpdateProfile extends Component {
     e.preventDefault();
 
     Axios.put(
-      `http://localhost:4000/api/users/${this.state.id}`,
+      `http://localhost:4000/api/users/${this.state.username}`,
       this.state
     ).then((res) => {
       console.log(res);

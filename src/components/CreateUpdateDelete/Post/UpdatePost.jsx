@@ -12,6 +12,7 @@ export default class UpdatePost extends Component {
       email: "",
       type_id: "",
       filepath: "",
+      comment: "",
       showmodal: false,
       success: false,
     };
@@ -19,7 +20,7 @@ export default class UpdatePost extends Component {
 
   //needs to filter the DB by the users name (or filepath?)
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/bss/${this.state.name}`).then(
+    Axios.get(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
       (res) => {
         console.table(res.data);
         this.setState({
@@ -38,7 +39,7 @@ export default class UpdatePost extends Component {
 
     //axios has to get the put the updated Form data back into the same DB object via UUID (or filepath?)
     Axios.put(
-      `http://localhost:4000/api/$var/${this.state.id}`,
+      `http://localhost:4000/api/bss/${this.state.filepath}`,
       this.state
     ).then((res) => {
       console.log(res);

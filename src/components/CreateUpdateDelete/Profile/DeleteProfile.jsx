@@ -25,7 +25,7 @@ export default class DeleteProfile extends Component {
 
   //this needs to be non-id call - it needs to populate the whole user DB and then add a new user object
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/users/${this.state.id}`).then(
+    Axios.get(`http://localhost:4000/api/users/${this.state.username}`).then(
       (res) => {
         console.log(this.state.id);
         console.table(res.data);
@@ -45,21 +45,19 @@ export default class DeleteProfile extends Component {
     );
   }
 
-  createUser = (e) => {
-    e.preventDefault();
-
-    Axios.put(
-      `http://localhost:4000/api/users/${this.state.id}`,
-      this.state
-    ).then((res) => {
-      console.log(res);
-      if (res.statusText === "OK") {
-        this.setState({ showmodal: true });
-        //show a different modal if the input is invalid or null
-      } else {
-        this.setState({ showmodal2: true });
+  deleteProfile = (e) => {
+    console.log("deleting ", this.props.username);
+    Axios.delete(`http://localhost:4000/api/bss/${this.state.username}`).then(
+      (res) => {
+        if (res.data.deletedCount >= 1) {
+          console.log(">>>> successful deletion");
+          this.props.refreshAll();
+        } else {
+          console.log(">>>> nothing deleted");
+        }
       }
-    });
+    );
+    console.log("could I run the refresh in here?");
   };
 
   handleUsername = (e) => {

@@ -12,6 +12,7 @@ export default class CreatePost extends Component {
       email: "",
       type_id: "",
       filepath: "",
+      comment: "",
       id: Date.now(),
       showmodal: false,
       success: false,

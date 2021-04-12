@@ -25,7 +25,7 @@ export default class CreateProfile extends Component {
 
   //this needs to be non-id call - it needs to populate the whole user DB and then add a new user object
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/users/${this.state.id}`).then(
+    Axios.get(`http://localhost:4000/api/users/`).then(
       (res) => {
         console.log(this.state.id);
         console.table(res.data);
