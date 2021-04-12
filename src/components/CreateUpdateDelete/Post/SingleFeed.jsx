@@ -37,7 +37,7 @@ class SingleFeed extends Component {
           <h2>{this.props.username}</h2>
           <h2>{this.props.title}</h2>
 
-          {/* <Link
+          {/* <Link"
             onClick={this.shipUserName}
             state={{ username: this.props.username }}
             to="/bio"
@@ -54,16 +54,16 @@ class SingleFeed extends Component {
             <br /> */}
 
           {/* <Link
-            onClick={this.shipUserName}
-            state={{ username: this.props.username }}
+            onClick={this.shipFilepath}
+            state={{ filepath: this.props.filepath }}
             to="/post"
             >Update Post
             <Link/>
             <br /> */}
           {/* 
             <Link
-            onClick={this.shipUserName}
-            state={{ username: this.props.username }}
+            onClick={this.shipFilePath}
+            state={{ filepath: this.props.filepath }}
             to="/post"
             >Delete Post
             <Link/>
@@ -73,5 +73,4 @@ class SingleFeed extends Component {
     );
   }
 }
-
 export default SingleFeed;
