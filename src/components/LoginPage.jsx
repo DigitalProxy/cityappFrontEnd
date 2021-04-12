@@ -1,7 +1,6 @@
 //**LOGIN**
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
-import MenuPage from "./MenuPage";
 
 var spacing = {
   marginTop: "50%",

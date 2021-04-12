@@ -21,19 +21,21 @@ export default class CreatePost extends Component {
   }
 
   //the id here needs to be a UUID
-  componentDidMount() {
-    Axios.get(`http://localhost:4000/api/bss/${this.state.id}`).then((res) => {
-      console.table(res.data);
-      this.setState({
-        id: res.data.id,
-        username: res.data.username,
-        title: res.data.title,
-        email: res.data.email,
-        type_id: res.data.type_id,
-        filepath: res.data.filepath,
-      });
-    });
-  }
+  // componentDidMount() {
+  //   Axios.get(`http://localhost:4000/api/bss/${this.state.username}`).then(
+  //     (res) => {
+  //       console.table(res.data);
+  //       this.setState({
+  //         id: res.data.id,
+  //         username: res.data.username,
+  //         title: res.data.title,
+  //         email: res.data.email,
+  //         type_id: res.data.type_id,
+  //         filepath: res.data.filepath,
+  //       });
+  //     }
+  //   );
+  // }
 
   updatePost = (e) => {
     e.preventDefault();
@@ -41,7 +43,7 @@ export default class CreatePost extends Component {
     //put the Form input into the DB
 
     Axios.put(
-      `http://localhost:4000/api/$var/${this.state.id}`,
+      `http://localhost:4000/api/bss/${this.state.id}`,
       this.state
     ).then((res) => {
       console.log(res);

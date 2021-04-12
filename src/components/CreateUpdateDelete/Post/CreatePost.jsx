@@ -6,6 +6,7 @@ export default class CreatePost extends Component {
   constructor(props) {
     super(props);
     //are we missing an id field in the handles?
+    //do we even need an empty state here?
     this.state = {
       id: "",
       username: "",
@@ -61,7 +62,7 @@ export default class CreatePost extends Component {
     }
   };
 
-  //   Axios.post("http://localhost:4000/api/", this.state).then((res) => {
+  //   Axios.post("http://localhost:4000/api/bss", this.state).then((res) => {
   //     console.log(res);
   //     if (res.statusText === "OK") {
   //       alert("Success - this needs a pretty modal");

@@ -9,16 +9,16 @@ export default class CreateProfile extends Component {
 
     this.state = {
       id: Date.now(),
-      username: String,
-      name: String,
-      email: String,
-      city: String,
-      country: String,
-      about: String,
-      instagram: String,
-      twitter: String,
-      fb: String,
-      website: String,
+      username: "",
+      name: "",
+      email: "",
+      city: "",
+      country: "",
+      about: "",
+      instagram: "",
+      twitter: "",
+      fb: "",
+      website: "",
       showmodal: false,
     };
     console.log(this.state.id);

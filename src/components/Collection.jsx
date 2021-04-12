@@ -50,7 +50,6 @@ var pStyle2 = {
   marginTop: "2px",
 };
 
-//single card
 class Collection extends Component {
   shipFilePath = (evt) => {
     console.log("hello filepath");
