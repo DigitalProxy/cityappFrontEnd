@@ -18,7 +18,6 @@ export default class CreatePost extends Component {
     };
   }
 
-  
   componentDidMount() {
     Axios.get(`http://localhost:4000/api/bss/${this.state.username}`).then(
       (res) => {
