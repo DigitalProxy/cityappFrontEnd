@@ -38,6 +38,11 @@ var loginButton = {
 };
 
 export default class LoginPage extends Component {
+  shipUserName = (evt) => {
+    console.log(this.props.username);
+    this.setState({ username: this.props.username });
+  };
+
   render() {
     return (
       <div className="loginBody">
@@ -157,6 +162,11 @@ export default class LoginPage extends Component {
             <p>SIGN UP</p>
           </div>
         </form>
+        <Link
+          onClick={this.shipUserName}
+          state={{ username: this.props.username }}
+          to="/profile"
+        ></Link>
 
         {/* <MenuPage /> */}
       </div>

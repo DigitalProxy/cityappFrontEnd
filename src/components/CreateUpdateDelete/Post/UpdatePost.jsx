@@ -7,6 +7,7 @@ export default class UpdatePost extends Component {
 
     this.state = {
       id: "",
+      username: "",
       title: "",
       name: "",
       email: "",
@@ -18,13 +19,20 @@ export default class UpdatePost extends Component {
     };
   }
 
-  //needs to filter the DB by the users name (or filepath?)
+  //props need to get here from single card
+  //needs to filter the DB by filepath
+  // shipFilepath = (evt) => {
+  //   console.log(this.props.filepath);
+  //   this.setState({ id: this.props.filepath });
+  // };
+
   componentDidMount() {
     Axios.get(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
       (res) => {
         console.table(res.data);
         this.setState({
           id: res.data.id,
+          username: res.data.username,
           title: res.data.title,
           email: res.data.email,
           type_id: res.data.type_id,
@@ -53,6 +61,10 @@ export default class UpdatePost extends Component {
 
   handleTitle = (e) => {
     this.setState({ title: e.target.value });
+  };
+
+  handleUserName = (e) => {
+    this.setState({ username: e.target.value });
   };
 
   handleName = (e) => {

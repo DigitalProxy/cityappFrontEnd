@@ -8,50 +8,49 @@ export default class DeleteProfile extends Component {
     super(props);
 
     this.state = {
-      _id: String,
-      username: String,
-      name: String,
-      email: String,
-      city: String,
-      country: String,
-      about: String,
-      instagram: String,
-      twitter: String,
-      fb: String,
-      website: String,
+      _id: "",
+      username: "",
+      name: "",
+      email: "",
+      city: "",
+      country: "",
+      about: "",
+      instagram: "",
+      twitter: "",
+      fb: "",
+      website: "",
     };
     console.log(this.state.id);
   }
 
-  //this needs to be non-id call - it needs to populate the whole user DB and then add a new user object
-  componentDidMount() {
-    Axios.get(`http://localhost:4000/api/users/${this.state.username}`).then(
-      (res) => {
-        console.log(this.state.id);
-        console.table(res.data);
-        this.setState({
-          _id: res.data._id,
-          username: res.data.username,
-          name: res.data.name,
-          email: res.data.name,
-          country: res.data.email,
-          about: res.data.about,
-          instagram: res.data.instagram,
-          twitter: res.data.twitter,
-          fb: res.data.fb,
-          website: res.data.website,
-        });
-      }
-    );
-  }
+  // componentDidMount() {
+  //   Axios.get(`http://localhost:4000/api/users/${this.state.username}`).then(
+  //     (res) => {
+  //       console.log(this.state.id);
+  //       console.table(res.data);
+  //       this.setState({
+  //         _id: res.data._id,
+  //         username: res.data.username,
+  //         name: res.data.name,
+  //         email: res.data.name,
+  //         country: res.data.email,
+  //         about: res.data.about,
+  //         instagram: res.data.instagram,
+  //         twitter: res.data.twitter,
+  //         fb: res.data.fb,
+  //         website: res.data.website,
+  //       });
+  //     }
+  //   );
+  // }
 
+  //username: this.props.location.state.username,
   deleteProfile = (e) => {
     console.log("deleting ", this.props.username);
-    Axios.delete(`http://localhost:4000/api/bss/${this.state.username}`).then(
+    Axios.delete(`http://localhost:4000/api/users/${this.state.username}`).then(
       (res) => {
         if (res.data.deletedCount >= 1) {
           console.log(">>>> successful deletion");
-          this.props.refreshAll();
         } else {
           console.log(">>>> nothing deleted");
         }

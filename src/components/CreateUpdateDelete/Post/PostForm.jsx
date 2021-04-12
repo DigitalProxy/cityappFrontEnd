@@ -8,6 +8,7 @@ export default class CreatePost extends Component {
     //runs baked-in datelog to hidden entry in MongoDB
     this.state = {
       title: "",
+      username: "",
       name: "",
       email: "",
       type_id: "",
@@ -25,6 +26,7 @@ export default class CreatePost extends Component {
       console.table(res.data);
       this.setState({
         id: res.data.id,
+        username: res.data.username,
         title: res.data.title,
         email: res.data.email,
         type_id: res.data.type_id,
@@ -53,6 +55,10 @@ export default class CreatePost extends Component {
 
   handleTitle = (e) => {
     this.setState({ title: e.target.value });
+  };
+
+  handleUsername = (e) => {
+    this.setState({ username: e.target.value });
   };
 
   handleName = (e) => {
@@ -88,6 +94,15 @@ export default class CreatePost extends Component {
             name="title"
             onChange={this.handleTitle}
             defaultValue={this.state.title}
+          />
+          <br />
+          <label>Username:</label>
+          <br />
+          <input
+            type="text"
+            name="username"
+            onChange={this.handleUsername}
+            defaultValue={this.state.username}
           />
           <br />
           <label>Name:</label>

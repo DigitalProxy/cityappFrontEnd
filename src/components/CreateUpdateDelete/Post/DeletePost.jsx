@@ -8,6 +8,7 @@ export default class DeletePost extends Component {
 
     this.state = {
       id: "",
+      username: "",
       title: "",
       name: "",
       email: "",
@@ -19,24 +20,34 @@ export default class DeletePost extends Component {
     };
   }
 
+  //props need to get here from ship Filepath somehow.
   //assign filepath to create delete point
-  componentDidMount() {
-    Axios.get(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
+  // shipFilepath = (evt) => {
+  //   console.log(this.props.filepath);
+  //   this.setState({ id: this.props.filepath });
+  // };
+
+  deletePost = (e) => {
+    console.log("deleting ", this.props.filepath);
+    Axios.delete(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
       (res) => {
-        console.table(res.data);
-        this.setState({
-          id: res.data.id,
-          title: res.data.title,
-          email: res.data.email,
-          type_id: res.data.type_id,
-          filepath: res.data.filepath,
-        });
+        if (res.data.deletedCount >= 1) {
+          console.log(">>>> successful deletion");
+          this.props.refreshAll();
+        } else {
+          console.log(">>>> nothing deleted");
+        }
       }
     );
-  }
+    console.log("could I run the refresh in here?");
+  };
 
   handleTitle = (e) => {
     this.setState({ title: e.target.value });
+  };
+
+  handleUsername = (e) => {
+    this.setState({ username: e.target.value });
   };
 
   handleName = (e) => {
@@ -59,21 +70,6 @@ export default class DeletePost extends Component {
     console.log("123");
     // this.props.showmodal = false;
     this.setState({ showmodal: false });
-  };
-
-  deletePost = (e) => {
-    console.log("deleting ", this.props.filepath);
-    Axios.delete(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
-      (res) => {
-        if (res.data.deletedCount >= 1) {
-          console.log(">>>> successful deletion");
-          this.props.refreshAll();
-        } else {
-          console.log(">>>> nothing deleted");
-        }
-      }
-    );
-    console.log("could I run the refresh in here?");
   };
 
   render() {

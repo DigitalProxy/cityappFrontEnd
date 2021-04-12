@@ -8,7 +8,7 @@ export default class CreateProfile extends Component {
     super(props);
 
     this.state = {
-      _id: String,
+      id: Date.now(),
       username: String,
       name: String,
       email: String,
@@ -19,47 +19,20 @@ export default class CreateProfile extends Component {
       twitter: String,
       fb: String,
       website: String,
+      showmodal: false,
     };
     console.log(this.state.id);
   }
 
-  //this needs to be non-id call - it needs to populate the whole user DB and then add a new user object
-  componentDidMount() {
-    Axios.get(`http://localhost:4000/api/users/`).then(
-      (res) => {
-        console.log(this.state.id);
-        console.table(res.data);
-        this.setState({
-          _id: res.data._id,
-          username: res.data.username,
-          name: res.data.name,
-          email: res.data.name,
-          country: res.data.email,
-          about: res.data.about,
-          instagram: res.data.instagram,
-          twitter: res.data.twitter,
-          fb: res.data.fb,
-          website: res.data.website,
-        });
-      }
-    );
-  }
-
-  createUser = (e) => {
-    e.preventDefault();
-
-    Axios.put(
-      `http://localhost:4000/api/users/${this.state.id}`,
-      this.state
-    ).then((res) => {
+  createUser = (event) => {
+    console.log("new user- check MongoDB");
+    this.setState({ showmodal: true });
+    //Axios posts the Form date that have been logged in this.state by the user input
+    Axios.post("http://localhost:4000/api/users", this.state).then((res) => {
       console.log(res);
-      if (res.statusText === "OK") {
-        this.setState({ showmodal: true });
-        //show a different modal if the input is invalid or null
-      } else {
-        this.setState({ showmodal2: true });
-      }
     });
+
+    event.preventDefault();
   };
 
   handleUsername = (e) => {
@@ -70,6 +43,10 @@ export default class CreateProfile extends Component {
   };
   handleEmail = (e) => {
     this.setState({ email: e.target.value });
+  };
+
+  handleCity = (e) => {
+    this.setState({ country: e.target.value });
   };
 
   handleCountry = (e) => {
@@ -132,6 +109,14 @@ export default class CreateProfile extends Component {
             name="email"
             onChange={this.handleEmail}
             // defaultValue={this.state.email}
+          />
+          <br />
+          <label>City:</label>
+          <input
+            type="text"
+            name="city"
+            onChange={this.handleCity}
+            // defaultValue={this.state.country}
           />
           <br />
           <label>Country:</label>
