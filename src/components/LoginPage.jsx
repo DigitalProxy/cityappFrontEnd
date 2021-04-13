@@ -40,7 +40,15 @@ export default class LoginPage extends Component {
   shipUserName = (evt) => {
     console.log(this.props.username);
     this.setState({ username: this.props.username });
+    localStorage.setItem("username", this.state.username)
+    // localStorage.setItem("username", this.state.username)
   };
+
+  userNameChanged = (evt) => {
+    this.setState({ username: evt.target.value})
+    console.log(evt.target.value)
+    // localStorage.setItem("username", this.state.username)
+  }
 
   render() {
     return (
@@ -149,23 +157,47 @@ export default class LoginPage extends Component {
           />
         </svg>
 
-        <form style={loginStyle} action="/feed">
-          <input style={loginInput} type="text" placeholder="USERNAME" />
+        <form style={loginStyle} /*action="/feed"*/>
+
+          <input 
+          
+          onChange={this.userNameChanged}
+          style={loginInput} type="text" placeholder="USERNAME" />
           <br />
           <input style={loginInput} type="password" placeholder="PASSWORD" />
           <br />
-          <input style={loginButton} type="submit" value="LOG IN"></input>
+
+          {/* set value to this.state */}
+
+          {/* <Link style={loginButton}>
+          <input ></input>
+          </Link> */}
+
+          {/* onChange={this.setState({username: this.props.username})} */}
+
+          {/* <input onClick={this.shipUserName} state={{ username: this.props.username }} style={loginButton} type="submit" value="LOG IN"></input> */}
+
+          <Link
+            onClick={this.shipUserName}
+            state={{ username: this.props.username }}
+            to="/profile"
+          > <input style={loginButton} type="submit" value="LOG IN"></input>
+          </Link>
+
           <br />
           <div style={bottomText}>
             <p style={color}>not a member yet?</p>
             <p>SIGN UP</p>
           </div>
         </form>
-        <Link
+
+
+        {/* <Link
+          style={loginButton}
           onClick={this.shipUserName}
           state={{ username: this.props.username }}
           to="/profile"
-        ></Link>
+        ></Link> */}
 
         {/* <MenuPage /> */}
       </div>
