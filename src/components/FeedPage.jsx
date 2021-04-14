@@ -8,8 +8,8 @@ export default class FeedPage extends Component {
   render() {
     return (
       <div className="feedBody">
-        <h1>FEED</h1>
-        <h1>BUILDINGS</h1>
+        {/* <h1>FEED</h1>
+        <h1>BUILDINGS</h1> */}
         {/* <FloatingMenu /> */}
         <FeedCard />
         <Menu />

@@ -157,7 +157,7 @@ export default class LoginPage extends Component {
           />
         </svg>
 
-        <form style={loginStyle} /*action="/feed"*/>
+        <form style={loginStyle} action="/feed">
 
           <input 
           

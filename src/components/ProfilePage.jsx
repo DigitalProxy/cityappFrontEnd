@@ -10,6 +10,7 @@ export default class ProfilePage extends Component {
     return (
       <div>
         <h1>CREATE/UPDATE/DELETE PROFILE</h1>
+        
         <CreateProfile />
         <DeleteProfile />
         <UpdateProfile />

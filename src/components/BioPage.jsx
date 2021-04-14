@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Bio from "../components/CreateUpdateDelete/Users/Bio";
+import SinglePost from "../components/SinglePost"
+import SingleFeed from "./CreateUpdateDelete/Post/SingleFeed";
 
 export default class BioPage extends Component {
   render() {
@@ -7,6 +9,8 @@ export default class BioPage extends Component {
       <div>
         <h1>CREATE BIO</h1>
         <Bio />
+        <SinglePost />
+        {/* <SingleFeed /> */}
       </div>
     );
   }
