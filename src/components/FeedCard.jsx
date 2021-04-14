@@ -57,10 +57,10 @@ class FeedCard extends Component {
     });
   }
 
-  shipFilePathID = (evt) => {
+  shipID = (evt) => {
     console.log("hello filepath");
-    console.log(this.props.id, this.props.filepath);
-    this.setState({ id: this.props.id, filepath: this.props.filepath });
+    console.log(this.props._id);
+    this.setState({ _id: this.props._id });
   };
 
   render() {

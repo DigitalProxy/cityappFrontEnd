@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-import Modal from "../Modal";
+import ProfileModal from "../Profile/ProfileModal";
 
 export default class CreateProfile extends Component {
   constructor(props) {
@@ -19,20 +19,25 @@ export default class CreateProfile extends Component {
       twitter: "",
       fb: "",
       website: "",
-      showmodal: false,
+      postModal: false,
     };
     console.log(this.state.id);
   }
 
-  createUser = (event) => {
+  postProfile = (event) => {
     console.log("new user- check MongoDB");
-    this.setState({ showmodal: true });
+    this.setState({ postModal: true });
     //Axios posts the Form date that have been logged in this.state by the user input
     Axios.post("http://localhost:4000/api/users", this.state).then((res) => {
       console.log(res);
     });
-
     event.preventDefault();
+  };
+
+  onClose = (e) => {
+    console.log("123");
+    // this.props.showmodal = false;
+    this.setState({ postModal: false });
   };
 
   handleUsername = (e) => {
@@ -73,19 +78,13 @@ export default class CreateProfile extends Component {
     this.setState({ website: e.target.value });
   };
 
-  onClose = (e) => {
-    console.log("123");
-    // this.props.showmodal = false;
-    this.setState({ showmodal: false });
-  };
-
   render() {
     //is there a way to run a component for the form and then nest another component for the "defaultValue" that feeds a $var into for the different
     //form inputs?  Prob not.
     return (
       <div className="form-wrapper">
         <h1>Create Profile:</h1>
-        <form className="special" onSubmit={this.createUser}>
+        <form className="special" onSubmit={this.postProfile}>
           <label>Username:</label>
           <input
             type="text"
@@ -171,11 +170,11 @@ export default class CreateProfile extends Component {
           <button type="submit">Create Profile</button>
         </form>
 
-        <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
+        <ProfileModal postModal={this.state.postModal} onClose={this.onClose}>
           <h1>Modal Window Info</h1>
           <h1>Success</h1>
           <p>{this.state.username} has been added.</p>
-        </Modal>
+        </ProfileModal>
       </div>
     );
   }

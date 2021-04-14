@@ -108,8 +108,8 @@ class Collection extends Component {
               </div>
             </div>
             <Link
-              onClick={this.shipFilePath}
-              state={{ filepath: this.props.filepath, id: this.props.id }}
+              onClick={this.shipID}
+              state={{ _id: this.props._id }}
               to="/bio"
               to="/post"
             >
@@ -125,24 +125,19 @@ class Collection extends Component {
                 <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
                 <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
               </svg>
-            </Link>  
+            </Link>
           </div>
-          <div >
+          <div>
             <h2 style={imgTitleStyle}>{this.props.title}</h2>
             {/* <button onClick={this.deletePost}>delete</button> */}
-
           </div>
           <Link
-              onClick={this.shipFilePath}
-              state={{ filepath: this.props.filepath }}
-              to="/BioPage"
-            >
-          <img src={this.props.filepath} />
-   
-            </Link>
-
-
-    
+            onClick={this.shipFilePath}
+            state={{ filepath: this.props.filepath }}
+            to="/bio"
+          >
+            <img src={this.props.filepath} />
+          </Link>
         </div>
       </div>
     );
