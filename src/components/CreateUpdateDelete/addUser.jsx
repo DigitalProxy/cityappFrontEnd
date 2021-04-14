@@ -80,17 +80,5 @@ export default class AddPostForm extends Component {
 }
 
 
-{
-    _id: String,
-    username: String,
-    name: String,
-    email: String,
-    city: String,
-    country: String,
-    about: String,
-    instagram: String,
-    twitter: String,
-    fb: String,
-    website: String,
-  },
+
   
