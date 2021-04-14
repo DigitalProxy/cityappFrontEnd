@@ -5,7 +5,6 @@ import MenuSettingsIcon from './MenuSettingsIcon'
 import MenuProfileIcon from './MenuProfileIcon'
 import MenuAddIcon from './MenuAddIcon'
 import MenuLogIn from './MenuLogIn'
-import AddPostForm from '../form/AddPostForm'
 
 export default class Menu extends Component {
     constructor(props){

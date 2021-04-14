@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Router, Link, navigate } from "@reach/router";
 
 export default class CreatePost extends Component {
   constructor(props) {
@@ -97,6 +98,9 @@ export default class CreatePost extends Component {
   render() {
     return (
       <div className="form-container">
+        <Link to="/feed">
+        <button className="back">Go Back</button>
+        </Link>
         <h3>Add Post</h3>
         <form className="add-post" onSubmit={this.createPost}>
           <label>Title:</label>
@@ -145,7 +149,7 @@ export default class CreatePost extends Component {
             // defaultValue={this.state.filepath}
           />
           <br />
-          <label>Category:</label>
+          <label className="category">Category:</label>
           <br />
           <label>Buildings:</label>
           <input className="buildings input"
@@ -177,7 +181,7 @@ export default class CreatePost extends Component {
             // defaultValue={this.state.typeID}
           />
           <br />
-          <button type="submit">Create post</button>
+          <button type="submit" className="submit-button">Create post</button>
         </form>
 {/* 
         <Modal showmodal={this.state.showmodal} onClose={this.onClose}>

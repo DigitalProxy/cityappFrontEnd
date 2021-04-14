@@ -11,9 +11,8 @@ import FeedPage from "./components/FeedPage";
 import ProfilePage from "./components/ProfilePage";
 import PostPage from "./components/PostPage";
 import ScreenSaverPage from "./components/screensaverpage/ScreenSaverPage";
-import AddPostForm from './components/form/AddPostForm';
 import BioPage from './components/BioPage'
-
+import AddPostForm from './components/form/AddPostForm'
 
 function App() {
   return (
@@ -26,8 +25,8 @@ function App() {
       <ProfilePage path="/profile"/>
       <PostPage path="/post"/>
       <ScreenSaverPage path="/screensaver"/>
-      <AddPostForm path="/feed/add" />
       <BioPage path="/BioPage" />
+      <AddPostForm path="/feed/add/" />
     </Router>
     </div>
   );
