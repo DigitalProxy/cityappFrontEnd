@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;900&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;900&display=swap'); */
 
 * {
     box-sizing: border-box;
@@ -34,12 +33,15 @@
 }
 
 .slideshow-container {
-    border: red solid 1px;
     height: 60vh;
     width: 80vw;
+    overflow: hidden;
     margin: 0 0 0 100vw;
     position: absolute;
     animation: slide-gallery-right 2s .5s forwards;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
 @keyframes slide-down {
@@ -57,6 +59,7 @@
     position: absolute;
     margin: -100px 0 0 53vw;
     animation: slide-down 1.5s 1s forwards;
+    font-weight: 800;
 }
 
 .logo-top, .logo-bottom {
@@ -111,6 +114,7 @@
     font-size: 2.3vh;
     animation: slide-landing-headings-right 2s forwards;
     margin-left: -100vw;
+    font-weight: 800;
 }
 
 .heading-2 {
@@ -121,9 +125,13 @@
     -webkit-text-stroke: black 1px;
     animation: slide-landing-headings-right 1.7s 1.3s forwards;
     margin-left: -100vw;
+    position: relative;
+    z-index: 2;
 }
 
 .heading-1 {
+    position: relative;
+    z-index: 2;
     margin: 10px 5vw;
     font-size: 5vh;
     line-height: 8.5vh;
@@ -455,7 +463,7 @@ input[type="text"] {
     color: white;
 }
 
-img {
+.feed img {
   width: 100%;
   object-fit: cover;
   height: 300px;
