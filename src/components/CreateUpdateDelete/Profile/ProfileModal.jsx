@@ -5,10 +5,10 @@ var modalStyle = {
   position: "absolute",
   top: "0",
   left: "0%",
-  backgroundColor: "rgba(0,0,0,0.9)",
+  // backgroundColor: "rgba(0,0,0,0.9)",
   width: "100vw",
   height: "100vh",
-  color: "snow",
+  color: "darkgrey",
 };
 
 class ProfileModal extends Component {
@@ -18,7 +18,7 @@ class ProfileModal extends Component {
       return null;
       //   <div className="my-modal" style={modalStyle}>
       //   <h2>Modal Window</h2>
-      //   <button onClick={this.props.onClose}>Close</button>
+
       //   <div>{this.props.children}</div>
       // </div>
     } else
@@ -26,6 +26,7 @@ class ProfileModal extends Component {
         <div className="my-modal" style={modalStyle}>
           <h2>Modal Window</h2>
           <CreateProfile />
+          <button onClick={this.props.onClose}>Close</button>
         </div>
       );
   }

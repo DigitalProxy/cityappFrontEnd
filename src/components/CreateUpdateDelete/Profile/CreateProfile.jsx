@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-import ProfileModal from "../Profile/ProfileModal";
+// import Modal from "../Profile/Modal";
 
 export default class CreateProfile extends Component {
   constructor(props) {
@@ -170,11 +170,11 @@ export default class CreateProfile extends Component {
           <button type="submit">Create Profile</button>
         </form>
 
-        <ProfileModal postModal={this.state.postModal} onClose={this.onClose}>
+        {/* <Modal postModal={this.state.postModal} onClose={this.onClose}>
           <h1>Modal Window Info</h1>
           <h1>Success</h1>
           <p>{this.state.username} has been added.</p>
-        </ProfileModal>
+        </Modal> */}
       </div>
     );
   }

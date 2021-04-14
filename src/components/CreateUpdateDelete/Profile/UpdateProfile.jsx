@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-import Modal from "../Modal";
+// import Modal from "../Profile/Modal";
 
 export default class UpdateProfile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      _id: String,
-      username: String,
-      name: String,
-      email: String,
-      city: String,
-      country: String,
-      about: String,
-      instagram: String,
-      twitter: String,
-      fb: String,
-      website: String,
+      _id: "",
+      username: "",
+      name: "",
+      email: "",
+      city: "",
+      country: "",
+      about: "",
+      instagram: "",
+      twitter: "",
+      fb: "",
+      website: "",
     };
     console.log(this.state.id);
   }
@@ -185,11 +185,11 @@ export default class UpdateProfile extends Component {
           <button type="submit">Update Profile</button>
         </form>
 
-        <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
+        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
           <h1>Modal Window Info</h1>
           <h1>Success</h1>
           <p>{this.state.username} has been updated.</p>
-        </Modal>
+        </Modal> */}
       </div>
     );
   }
