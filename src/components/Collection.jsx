@@ -52,12 +52,6 @@ var pStyle2 = {
 };
 
 class Collection extends Component {
-  shipFilePath = (evt) => {
-    console.log("hello filepath");
-    console.log(this.props.filepath);
-    this.setState({ filepath: this.props.filepath });
-  };
-
   refreshList = (e) => {
     axios.get(this.state.url).then((res) => {
       console.log(res.data);
@@ -145,8 +139,18 @@ class Collection extends Component {
                 </p>
               </div>
             </div>
+<<<<<<< HEAD
    
             <svg
+=======
+            <Link
+              onClick={this.shipFilePath}
+              state={{ filepath: this.props.filepath, id: this.props.id }}
+              to="/bio"
+              to="/post"
+            >
+              <svg
+>>>>>>> 714c2eb4081936d002a77a75ef5ebb4414bc27f0
                 style={spacing}
                 width="3"
                 height="13"

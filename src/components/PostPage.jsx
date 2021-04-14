@@ -11,8 +11,8 @@ export default class PostPage extends Component {
       <div>
         <h1>POST</h1>
         <CreatePost />
-        <UpdatePost />
-        <DeletePost />
+        {/* <UpdatePost />
+        <DeletePost /> */}
         <MenuPage />
       </div>
     );
