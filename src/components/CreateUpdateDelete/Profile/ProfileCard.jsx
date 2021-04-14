@@ -1,10 +1,6 @@
-//**CARD**
-//**REACT**
 import React, { Component } from "react";
-//DATA MANAGEMENT
 import axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
-//COMPONENTS
 import ProfileCollection from "../Profile/ProfileCollection";
 import ProfileModal from "../Profile/ProfileModal";
 
@@ -44,12 +40,16 @@ class FeedCard extends Component {
   deleteModal = (event) => {
     console.log("new user- check MongoDB");
     this.setState({ deleteModal: true });
+    console.log("hello username");
+    console.log(this.props.id, this.props.username);
+    this.setState({ id: this.props.id, filepath: this.props.username });
   };
 
-  // shipProfile = (evt) => {
-  //   console.log("hello filepath");
-  //   console.log(this.props.id, this.props.filepath);
-  //   this.setState({ id: this.props.id, filepath: this.props.filepath });
+  //KEVIN: Can I nest this function in the delete modal?
+  // shipUserName = (event) => {
+  //   console.log("hello username");
+  //   console.log(this.props.id, this.props.username);
+  //   this.setState({ id: this.props.id, filepath: this.props.username });
   // };
 
   render() {
@@ -79,18 +79,18 @@ class FeedCard extends Component {
         })}
         <button onClick={this.createModal}>Create Profile</button>
         <button onClick={this.updateModal}>Update Profile</button>
-        <button ocClick={this.deleteModal}>Delete Profile</button>
+        <button onClick={this.deleteModal}>Delete Profile</button>
 
-        <ProfileModal
+        {/* <ProfileModal
           createmodal={this.state.createmodal}
           onClose={this.onClose}
         >
           <h1>Modal Window Info</h1>
           <h1>Sucess</h1>
           <p>{this.state.username} profile has been added.</p>
-        </ProfileModal>
+        </ProfileModal> */}
 
-        <ProfileModal
+        {/* <ProfileModal
           updatemodal={this.state.updatemodal}
           onClose={this.onClose}
         >
@@ -106,7 +106,7 @@ class FeedCard extends Component {
           <h1>Modal Window Info</h1>
           <h1>Sucess</h1>
           <p>{this.state.username} profile has been deleted.</p>
-        </ProfileModal>
+        </ProfileModal> */}
       </div>
     );
   }
