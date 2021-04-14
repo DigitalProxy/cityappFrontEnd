@@ -4,8 +4,10 @@ import React, { Component } from "react";
 //AXIOS DATA MANAGEMENT
 import axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
+import DeletePost from "../components/CreateUpdateDelete/Post/DeletePost"
 //APP PAGES
 import Collection from "./Collection";
+
 
 // STYLES
 var Style1 = {
@@ -63,6 +65,10 @@ class FeedCard extends Component {
         {this.state.fullStack.map((item, index) => {
           return (
             <div>
+
+              {/* console.log(`http://localhost:4000/api/${updateURL}${this.state.filepath}`) */}
+
+              
               <Collection
                 key={index}
                 title={item.title}
@@ -160,7 +166,7 @@ class FeedCard extends Component {
                 <div style={shareStyle}>
                   <br />
                   <Link style={linkStyle} to="/share">
-                    <strong>SHARE</strong>{" "}
+                    <strong>SHARE</strong>
                   </Link>
                 </div>
               </div>

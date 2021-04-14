@@ -15,6 +15,7 @@ var titleStyle2 = {
 };
 
 var imgTitleStyle = {
+  display: "flex",
   textAlign: "left",
   padding: "0",
   margin: "0",
@@ -64,6 +65,38 @@ class Collection extends Component {
     });
   };
 
+  // deletePost = (evt) => {
+  //   axios.delete(`http://localhost:4000/api/${updateURL}/${this.state.filepath}`, this.state).then(
+  //     (res) => {
+  //           console.log(res);
+  //       if (res.data.deletedCount >= 1) {
+  //           console.log(">>>>> successful delete");
+  //       } else {
+  //           console.log(">>>>> nothing deleted");
+
+  //       }
+  //     }
+  //   );
+  // }
+
+  deletePost = (e) => {
+    console.log("deleting ", this.props.filepath);
+    axios.delete(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
+      (res) => {
+        if (res.data.deletedCount >= 1) {
+          console.log(">>>> successful deletion");
+          this.props.refreshAll();
+        } else {
+          console.log(">>>> nothing deleted");
+        }
+      }
+    );
+    console.log("could I run the refresh in here?");
+  };
+  
+
+  
+
   render() {
     return (
       <div key={this.props.key}>
@@ -112,12 +145,8 @@ class Collection extends Component {
                 </p>
               </div>
             </div>
-            <Link
-              onClick={this.shipFilePath}
-              state={{ filepath: this.props.filepath }}
-              to="/bio"
-            >
-              <svg
+   
+            <svg
                 style={spacing}
                 width="3"
                 height="13"
@@ -129,10 +158,23 @@ class Collection extends Component {
                 <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
                 <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
               </svg>
-            </Link>
           </div>
-          <h2 style={imgTitleStyle}>{this.props.title}</h2>
+          <div >
+            <h2 style={imgTitleStyle}>{this.props.title}</h2>
+            {/* <button onClick={this.deletePost}>delete</button> */}
+
+          </div>
+          <Link
+              onClick={this.shipFilePath}
+              state={{ filepath: this.props.filepath }}
+              to="/BioPage"
+            >
           <img src={this.props.filepath} />
+   
+            </Link>
+
+
+    
         </div>
       </div>
     );

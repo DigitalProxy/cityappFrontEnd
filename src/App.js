@@ -12,6 +12,8 @@ import ProfilePage from "./components/ProfilePage";
 import PostPage from "./components/PostPage";
 import ScreenSaverPage from "./components/screensaverpage/ScreenSaverPage";
 import AddPostForm from './components/form/AddPostForm';
+import BioPage from './components/BioPage'
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
       <PostPage path="/post"/>
       <ScreenSaverPage path="/screensaver"/>
       <AddPostForm path="/feed/add" />
+      <BioPage path="/BioPage" />
     </Router>
     </div>
   );
