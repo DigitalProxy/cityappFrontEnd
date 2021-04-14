@@ -2,18 +2,22 @@ import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 import MenuPage from "./MenuPage";
 import CreatePost from "../components/CreateUpdateDelete/Post/CreatePost";
-import UpdatePost from "../components/CreateUpdateDelete/Post/UpdatePost";
-import DeletePost from "./CreateUpdateDelete/Post/DeletePost";
+import UpdateModal from "../components/CreateUpdateDelete/Post/UpdateModal";
+import DeleteModal from "./CreateUpdateDelete/Post/DeleteModal";
+import addPost from "./CreateUpdateDelete/Post/addPost";
+import SingleCard from "./CreateUpdateDelete/Post/SingleFeed";
 
 export default class PostPage extends Component {
   render() {
     return (
       <div>
         <h1>POST</h1>
-        <CreatePost />
-        {/* <UpdatePost />
-        <DeletePost /> */}
+        {/* <CreatePost /> */}
+        {/* <UpdateModal /> */}
+        <SingleCard />
+        {/* <DeleteModal /> */}
         <MenuPage />
+        <addPost />
       </div>
     );
   }

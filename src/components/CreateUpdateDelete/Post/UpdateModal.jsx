@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import PostForm from "./PostForm";
-export default class UpdatePost extends Component {
+export default class UpdateModal extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: this.props.location.state.id,
+      id: "",
       username: "",
       title: "",
       name: "",
       email: "",
       type_id: "",
-      filepath: this.props.location.state.filepath,
+      filepath: "",
       comment: "",
       showmodal: false,
       success: false,

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
-import axios from "axios";
+import Axios from "axios";
 
 //single image card
-class SingleFeed extends Component {
-  shipFilepath = (evt) => {
-    console.log(this.props.filepath);
-    this.setState({ filepath: this.props.filepath });
+class SingleCard extends Component {
+  shipTitle = (evt) => {
+    console.log(this.props.title);
+    this.setState({ filepath: this.props.title });
   };
 
   shipUserName = (evt) => {
@@ -15,9 +15,25 @@ class SingleFeed extends Component {
   };
 
   deletePost = (e) => {
-    console.log("deleting ", this.props.filepath);
-    axios
-      .delete(`http://localhost:4000/api/bss/${this.props.filepath}`)
+
+    var createURL = "";
+    console.log("spot>>>>>>>>>>", this.state.title)
+    console.log("spot>>>>>>>>>>", typeof(this.state.title))
+
+    if (this.state.type_id === "1") {
+      createURL = "buildings"
+      console.log("build")
+    } else if (this.state.type_id === "2") {
+      createURL = "streets"
+      console.log("street")
+    } else if (this.state.type_id === "3") {
+      createURL = "surroundings"
+      console.log("surround")
+    }
+    console.log("deleting ", this.props.title);
+
+    Axios
+      .delete(`http://localhost:4000/api/${createURL}${this.state.title}`)
       .then((res) => {
         if (res.data.deletedCount >= 1) {
           console.log(">>>> successful deletion");
@@ -29,42 +45,19 @@ class SingleFeed extends Component {
     console.log("could I run the refresh in here?");
   };
 
-  //NEED TO PUT PATHS IN FOR THE LINKS
+  //NEED TO ADD 2xMODALS (one for Emma's delete and another one for the Update Page)
   render() {
     return (
       <div key={this.props.key}>
         <div>
+          <h1>Hello Single</h1>
           <h2>{this.props.username}</h2>
           <h2>{this.props.title}</h2>
-
-          <Link
-            onClick={this.shipUserName}
-            state={{ username: this.props.username }}
-            to="/bio"
-            >See Bio
-            <Link/>
-            <br />
-
-          <Link
-            onClick={this.shipUserName}
-            state={{ username: this.props.username }}
-            to="/post"
-            >Create Post
-            <Link/>
-            <br />
-
-
-          
-            <Link
-            onClick={this.shipFilePath}
-            state={{ filepath: this.props.filepath }}
-            to="/post"
-            >Delete Post
-            <Link/>
-            <br />
+          <button>Delete</button>
         </div>
       </div>
     );
   }
 }
-export default SingleFeed;
+export default SingleCard;
+

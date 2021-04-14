@@ -59,38 +59,6 @@ class Collection extends Component {
     });
   };
 
-  // deletePost = (evt) => {
-  //   axios.delete(`http://localhost:4000/api/${updateURL}/${this.state.filepath}`, this.state).then(
-  //     (res) => {
-  //           console.log(res);
-  //       if (res.data.deletedCount >= 1) {
-  //           console.log(">>>>> successful delete");
-  //       } else {
-  //           console.log(">>>>> nothing deleted");
-
-  //       }
-  //     }
-  //   );
-  // }
-
-  deletePost = (e) => {
-    console.log("deleting ", this.props.filepath);
-    axios.delete(`http://localhost:4000/api/bss/${this.state.filepath}`).then(
-      (res) => {
-        if (res.data.deletedCount >= 1) {
-          console.log(">>>> successful deletion");
-          this.props.refreshAll();
-        } else {
-          console.log(">>>> nothing deleted");
-        }
-      }
-    );
-    console.log("could I run the refresh in here?");
-  };
-  
-
-  
-
   render() {
     return (
       <div key={this.props.key}>
@@ -139,10 +107,6 @@ class Collection extends Component {
                 </p>
               </div>
             </div>
-<<<<<<< HEAD
-   
-            <svg
-=======
             <Link
               onClick={this.shipFilePath}
               state={{ filepath: this.props.filepath, id: this.props.id }}
@@ -150,7 +114,6 @@ class Collection extends Component {
               to="/post"
             >
               <svg
->>>>>>> 714c2eb4081936d002a77a75ef5ebb4414bc27f0
                 style={spacing}
                 width="3"
                 height="13"
@@ -162,6 +125,7 @@ class Collection extends Component {
                 <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
                 <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
               </svg>
+            </Link>  
           </div>
           <div >
             <h2 style={imgTitleStyle}>{this.props.title}</h2>

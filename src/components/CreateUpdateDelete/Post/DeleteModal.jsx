@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import PostForm from "./PostForm";
 
-export default class DeletePost extends Component {
+export default class DeleteModal extends Component {
   constructor(props) {
     super(props);
 
@@ -77,9 +77,9 @@ export default class DeletePost extends Component {
       <div className="form-wrapper">
         <h1>Delete Post:</h1>
         <PostForm />
-        <button onClick={this.deletePost} action={this.props.refreshCollection}>
+        {/* <button onClick={this.deletePost} action={this.props.refreshCollection}>
           Delete Post
-        </button>
+        </button> */}
       </div>
     );
   }
