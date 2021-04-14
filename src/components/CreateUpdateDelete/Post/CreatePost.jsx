@@ -96,11 +96,12 @@ export default class CreatePost extends Component {
 
   render() {
     return (
-      <div className="form-wrapper">
-        <form className="special" onSubmit={this.createPost}>
+      <div className="form-container">
+        <h3>Add Post</h3>
+        <form className="add-post" onSubmit={this.createPost}>
           <label>Title:</label>
           <br />
-          <input
+          <input className="title input"
             type="text"
             name="title"
             onChange={this.handleTitle}
@@ -109,7 +110,7 @@ export default class CreatePost extends Component {
           <br />
           <label>Username:</label>
           <br />
-          <input
+          <input className="name input"
             type="text"
             name="username"
             onChange={this.handleUsername}
@@ -118,7 +119,7 @@ export default class CreatePost extends Component {
           <br />
           <label>Name:</label>
           <br />
-          <input
+          <input className="name input"
             type="text"
             name="name"
             onChange={this.handleName}
@@ -127,7 +128,7 @@ export default class CreatePost extends Component {
           <br />
           <label>Email:</label>
           <br />
-          <input
+          <input className="email input"
             type="text"
             name="email"
             onChange={this.handleEmail}
@@ -136,7 +137,7 @@ export default class CreatePost extends Component {
           <br />
           <label>Image Link:</label>
           <br />
-          <input
+          <input className="filepath input"
             type="text"
             id="filepath"
             name="filepath"
@@ -147,7 +148,7 @@ export default class CreatePost extends Component {
           <label>Category:</label>
           <br />
           <label>Buildings:</label>
-          <input
+          <input className="buildings input"
             type="radio"
             id="type_id"
             name="category"
@@ -157,7 +158,7 @@ export default class CreatePost extends Component {
           />
           <br />
           <label>Streets:</label>
-          <input
+          <input className="streets input"
             type="radio"
             id="type_id"
             name="category"
@@ -167,7 +168,7 @@ export default class CreatePost extends Component {
           />
           <br />
           <label>Surroundings:</label>
-          <input
+          <input className="surroundings input"
             type="radio"
             id="type_id"
             name="category"
