@@ -4,6 +4,7 @@ import axios from "axios";
 import ProfileCollection from "../Profile/ProfileCollection";
 import CreateModal from "../Profile/CreateProfile";
 import UpdateModal from "../Profile/UpdateModal";
+import DeleteModal from "../Profile/DeleteModal";
 
 class FeedCard extends Component {
   constructor(props) {
@@ -95,6 +96,7 @@ class FeedCard extends Component {
 
         <CreateModal />
         <UpdateModal />
+        <DeleteModal />
 
         {/* <updateProfileModal
         {this.state.updateModal ? true : false}>

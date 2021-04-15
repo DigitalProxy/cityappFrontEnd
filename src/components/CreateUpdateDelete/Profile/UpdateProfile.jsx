@@ -180,15 +180,13 @@ export default class UpdateProfile extends Component {
           <button type="submit">Update Profile</button>
         </form>
 
-        <h2>Update Profile</h2>
-        <button onClick={this.props.onClose}>Close</button>
-        <div>{this.props.children}</div>
-
-        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
-          <h1>Modal Window Info</h1>
-          <h1>Success</h1>
-          <p>{this.state.username} has been updated.</p>
-        </Modal> */}
+        <div className="delete-form">
+          <div className="delete-box">
+            <h3>Are you sure you want to update this profile?</h3>
+            <button className="delete-button">Yes</button>
+            <button className="cancel-button">Go Back</button>
+          </div>
+        </div>
       </div>
     );
   }

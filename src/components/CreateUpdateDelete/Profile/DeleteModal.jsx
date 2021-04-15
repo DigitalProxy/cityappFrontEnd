@@ -1,15 +1,23 @@
 import React, { Component } from "react";
+import DeleteProfile from "./DeleteProfile";
 
-export default class DeletePostForm extends Component {
+class DeleteModal extends Component {
   render() {
+    //   onClose = (e) => {
+    //   console.log("123");
+    //   // this.props.showmodal = false;
+    //   this.setState({ showmodal: false });
+    //   action={this.refreshCollection}  // };
+    if (this.props.createModal === false) {
+      return null;
+    }
+
     return (
-      <div className="delete-form">
-        <div className="delete-box">
-          <h3>Are you sure you want to delete this post?</h3>
-          <button className="delete-button">Yes</button>
-          <button className="cancel-button">Go Back</button>
-        </div>
+      <div className="form-wrapper">
+        <h1>Delete Post:</h1>
+        <DeleteProfile />
       </div>
     );
   }
 }
+export default DeleteModal;

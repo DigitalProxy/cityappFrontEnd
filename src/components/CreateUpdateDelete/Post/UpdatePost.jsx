@@ -194,6 +194,20 @@ export default class UpdateModal extends Component {
           />
           <br />
         </form>
+        <div className="delete-form">
+          <div className="delete-box">
+            <h3>Are you sure you want to update this post?</h3>
+            <button className="cancel-button">Go Back</button>
+            <button
+              className="delete-button"
+              onClick={this.updatePost}
+              //not sure where this sends the props to.  Back to Feed?
+              action={this.props.refreshCollection}
+            >
+              Yes
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

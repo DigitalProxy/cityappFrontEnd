@@ -69,14 +69,12 @@ export default class DeleteProfile extends Component {
     //is there a way to run a component for the form and then nest another component for the "defaultValue" that feeds a $var into for the different
     //form inputs?  Prob not.
     return (
-      <div className="form-wrapper">
-        <button type="submit">Delete Profile</button>
-
-        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
-          <h1>Modal Window Info</h1>
-          <h1>Success</h1>
-          <p>{this.state.username} has been deleted.</p>
-        </Modal> */}
+      <div className="delete-form">
+        <div className="delete-box">
+          <h3>Are you sure you want to delete this profile?</h3>
+          <button className="delete-button">Yes</button>
+          <button className="cancel-button">Go Back</button>
+        </div>
       </div>
     );
   }
