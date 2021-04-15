@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
 import ProfileCollection from "../Profile/ProfileCollection";
-import ProfileModal from "../Profile/ProfileModal";
+import createProfileModal from "../Profile/createProfileModal";
 
 class FeedCard extends Component {
   constructor(props) {
@@ -74,6 +74,7 @@ class FeedCard extends Component {
                 website={item.website}
               />
               <h1>PROFILE</h1>
+              
             </div>
           );
         })}
@@ -81,32 +82,33 @@ class FeedCard extends Component {
         <button onClick={this.updateModal}>Update Profile</button>
         <button onClick={this.deleteModal}>Delete Profile</button>
 
-        {/* <ProfileModal
-          createmodal={this.state.createmodal}
+        
+        <createProfileModal
+          // createModal={this.state.createModal}
           onClose={this.onClose}
         >
           <h1>Modal Window Info</h1>
           <h1>Sucess</h1>
           <p>{this.state.username} profile has been added.</p>
-        </ProfileModal> */}
+        </createProfileModal>
 
-        {/* <ProfileModal
-          updatemodal={this.state.updatemodal}
+        <updateProfileModal
+          // updateModal={this.state.updateModal}
           onClose={this.onClose}
         >
           <h1>Modal Window Info</h1>
           <h1>Sucess</h1>
           <p>{this.state.username} profile has been updated.</p>
-        </ProfileModal>
+        </updateProfileModal>
 
-        <ProfileModal
-          deletemodal={this.state.deletemodal}
+        <deleteProfileModal
+          // deleteModal={this.state.deleteModal}
           onClose={this.onClose}
         >
           <h1>Modal Window Info</h1>
           <h1>Sucess</h1>
           <p>{this.state.username} profile has been deleted.</p>
-        </ProfileModal> */}
+        </deleteProfileModal>
       </div>
     );
   }

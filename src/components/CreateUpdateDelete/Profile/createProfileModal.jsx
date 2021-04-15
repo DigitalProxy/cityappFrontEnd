@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CreateProfile from "../Profile/CreateProfile";
+import CreateProfile from "./CreateProfile";
 
 var modalStyle = {
   position: "absolute",
@@ -8,10 +8,10 @@ var modalStyle = {
   // backgroundColor: "rgba(0,0,0,0.9)",
   width: "100vw",
   height: "100vh",
-  color: "darkgrey",
+  color: "red",
 };
 
-class ProfileModal extends Component {
+class createProfileModal extends Component {
   render() {
     if (this.props.createModal === false) {
       // if we return null from a render method React will ignore ther component
@@ -25,10 +25,9 @@ class ProfileModal extends Component {
       return (
         <div className="my-modal" style={modalStyle}>
           <h2>Modal Window</h2>
-          <CreateProfile />
           <button onClick={this.props.onClose}>Close</button>
         </div>
       );
   }
 }
-export default ProfileModal;
+export default createProfileModal;
