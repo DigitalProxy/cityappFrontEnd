@@ -26,21 +26,21 @@ export default class CreatePost extends Component {
     e.preventDefault();
 
     var createURL = "";
-    console.log("spot>>>>>>>>>>", this.state.type_id)
-    console.log("spot>>>>>>>>>>", typeof(this.state.type_id))
+    console.log("spot>>>>>>>>>>", this.state.type_id);
+    console.log("spot>>>>>>>>>>", typeof this.state.type_id);
 
     if (this.state.type_id === "1") {
-      createURL = "buildings"
-      console.log("build")
+      createURL = "buildings";
+      console.log("build");
     } else if (this.state.type_id === "2") {
-      createURL = "streets"
-      console.log("street")
+      createURL = "streets";
+      console.log("street");
     } else if (this.state.type_id === "3") {
-      createURL = "surroundings"
-      console.log("surround")
+      createURL = "surroundings";
+      console.log("surround");
     }
 
-    console.log(`http://localhost:4000/api/${createURL}`)
+    console.log(`http://localhost:4000/api/${createURL}`);
     Axios.post(`http://localhost:4000/api/${createURL}`, this.state).then(
       (res) => {
         console.log(res);
@@ -51,41 +51,41 @@ export default class CreatePost extends Component {
         }
       }
     );
-  }
+  };
 
   handleTitle = (e) => {
     this.setState({ title: e.target.value });
-    console.log("title>>>>>>")
+    console.log("title>>>>>>");
   };
 
   handleUsername = (e) => {
     this.setState({ username: e.target.value });
-    console.log("username>>>>>>")
+    console.log("username>>>>>>");
   };
 
   handleName = (e) => {
     this.setState({ name: e.target.value });
-    console.log("name>>>>>>")
+    console.log("name>>>>>>");
   };
 
   handleEmail = (e) => {
     this.setState({ email: e.target.value });
-    console.log("email>>>>>>")
+    console.log("email>>>>>>");
   };
 
   handleTypeID = (e) => {
     this.setState({ type_id: e.target.value });
-    console.log("id>>>>>>>>")
+    console.log("id>>>>>>>>");
   };
 
   handleFilePath = (e) => {
     this.setState({ filepath: e.target.value });
-    console.log("filepath>>>>>>")
+    console.log("filepath>>>>>>");
   };
 
   handleComment = (e) => {
     this.setState({ filepath: e.target.value });
-    console.log("comment>>>>>>")
+    console.log("comment>>>>>>");
   };
 
   onClose = (e) => {
@@ -101,7 +101,8 @@ export default class CreatePost extends Component {
         <form className="add-post" onSubmit={this.createPost}>
           <label>Title:</label>
           <br />
-          <input className="title input"
+          <input
+            className="title input"
             type="text"
             name="title"
             onChange={this.handleTitle}
@@ -110,7 +111,8 @@ export default class CreatePost extends Component {
           <br />
           <label>Username:</label>
           <br />
-          <input className="name input"
+          <input
+            className="name input"
             type="text"
             name="username"
             onChange={this.handleUsername}
@@ -119,7 +121,8 @@ export default class CreatePost extends Component {
           <br />
           <label>Name:</label>
           <br />
-          <input className="name input"
+          <input
+            className="name input"
             type="text"
             name="name"
             onChange={this.handleName}
@@ -128,7 +131,8 @@ export default class CreatePost extends Component {
           <br />
           <label>Email:</label>
           <br />
-          <input className="email input"
+          <input
+            className="email input"
             type="text"
             name="email"
             onChange={this.handleEmail}
@@ -137,7 +141,8 @@ export default class CreatePost extends Component {
           <br />
           <label>Image Link:</label>
           <br />
-          <input className="filepath input"
+          <input
+            className="filepath input"
             type="text"
             id="filepath"
             name="filepath"
@@ -148,7 +153,8 @@ export default class CreatePost extends Component {
           <label>Category:</label>
           <br />
           <label>Buildings:</label>
-          <input className="buildings input"
+          <input
+            className="buildings input"
             type="radio"
             id="type_id"
             name="category"
@@ -158,7 +164,8 @@ export default class CreatePost extends Component {
           />
           <br />
           <label>Streets:</label>
-          <input className="streets input"
+          <input
+            className="streets input"
             type="radio"
             id="type_id"
             name="category"
@@ -168,7 +175,8 @@ export default class CreatePost extends Component {
           />
           <br />
           <label>Surroundings:</label>
-          <input className="surroundings input"
+          <input
+            className="surroundings input"
             type="radio"
             id="type_id"
             name="category"
@@ -179,6 +187,21 @@ export default class CreatePost extends Component {
           <br />
           <button type="submit">Create post</button>
         </form>
+
+        <div className="delete-form">
+          <div className="delete-box">
+            <h3>Are you sure you want to delete this post?</h3>
+            <button className="cancel-button">Go Back</button>
+            <button
+              className="delete-button"
+              onClick={this.deletePost}
+              //not sure where this sends the props to.  Back to Feed?
+              action={this.props.refreshCollection}
+            >
+              Yes
+            </button>
+          </div>
+        </div>
 
         {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
           <h1>New Post</h1>
@@ -191,5 +214,3 @@ export default class CreatePost extends Component {
     );
   }
 }
-  
-    

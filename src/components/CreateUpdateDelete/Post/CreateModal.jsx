@@ -11,7 +11,7 @@ export default class DeleteModal extends Component {
   render() {
     return (
       <div className="form-wrapper">
-        <h1>Delete Post:</h1>
+        <h1>Create Post:</h1>
         <CreatePost />
       </div>
     );

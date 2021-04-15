@@ -208,6 +208,14 @@ export default class UpdateModal extends Component {
             </button>
           </div>
         </div>
+
+        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
+      <h1>New Post</h1>
+      <h1>Complete</h1>
+      <p>
+        {this.state.username} {this.state.title} has been added.
+      </p>
+      </Modal> */}
       </div>
     );
   }

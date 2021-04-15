@@ -60,19 +60,29 @@ export default class DeleteModal extends Component {
 
   render() {
     return (
-      <div className="delete-form">
-        <div className="delete-box">
-          <h3>Are you sure you want to delete this post?</h3>
-          <button className="cancel-button">Go Back</button>
-          <button
-            className="delete-button"
-            onClick={this.deletePost}
-            //not sure where this sends the props to.  Back to Feed?
-            action={this.props.refreshCollection}
-          >
-            Yes
-          </button>
+      <div>
+        <div className="delete-form">
+          <div className="delete-box">
+            <h3>Are you sure you want to delete this post?</h3>
+            <button className="cancel-button">Go Back</button>
+            <button
+              className="delete-button"
+              onClick={this.deletePost}
+              //not sure where this sends the props to.  Back to Feed?
+              action={this.props.refreshCollection}
+            >
+              Yes
+            </button>
+          </div>
         </div>
+
+        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
+      <h1>New Post</h1>
+      <h1>Complete</h1>
+      <p>
+        {this.state.username} {this.state.title} has been added.
+      </p>
+      </Modal> */}
       </div>
     );
   }
