@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { Router, Link, navigate } from "@reach/router";
-import Modal from "../Modal";
+// import { Router, Link, navigate } from "@reach/router";
+// import Modal from "../Modal";
 
 export default class DeleteProfile extends Component {
   constructor(props) {

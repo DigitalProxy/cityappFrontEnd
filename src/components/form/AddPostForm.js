@@ -5,8 +5,7 @@ import { Router, Link, navigate } from "@reach/router";
 export default class CreatePost extends Component {
   constructor(props) {
     super(props);
-    //are we missing an id field in the handles?
-    //do we even need an empty state here?
+
     this.state = {
       id: "",
       username: "",
