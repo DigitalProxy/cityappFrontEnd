@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CreateProfile from "../Profile/CreateProfile";
+import CreateProfile from "./CreateProfile";
 
 var modalStyle = {
   position: "absolute",
@@ -11,7 +11,7 @@ var modalStyle = {
   color: "snow",
 };
 
-class Modal extends Component {
+class CreateModal extends Component {
   render() {
     if (this.props.createModal === false) {
       return null;
@@ -19,12 +19,9 @@ class Modal extends Component {
 
     return (
       <div className="my-modal" style={modalStyle}>
-        <h2>Create Profile</h2>
         <CreateProfile />
-        <button onClick={this.props.onClose}>Close</button>
-        <div>{this.props.children}</div>
       </div>
     );
   }
 }
-export default Modal;
+export default CreateModal;

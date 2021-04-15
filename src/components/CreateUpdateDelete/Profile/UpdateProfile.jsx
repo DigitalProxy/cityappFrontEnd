@@ -25,33 +25,28 @@ export default class UpdateProfile extends Component {
 
   //this needs to be non-id call - it needs to populate the whole user DB and then add a new user object
   componentDidMount() {
-    Axios.get(`http://localhost:4000/api/users/${this.state.username}`).then(
-      (res) => {
-        console.log(this.state.username);
-        console.table(res.data);
-        this.setState({
-          _id: res.data._id,
-          username: res.data.username,
-          name: res.data.name,
-          email: res.data.name,
-          country: res.data.email,
-          about: res.data.about,
-          instagram: res.data.instagram,
-          twitter: res.data.twitter,
-          fb: res.data.fb,
-          website: res.data.website,
-        });
-      }
-    );
+    Axios.get(`http://localhost:4000/api/users/`).then((res) => {
+      console.log(this.state.username);
+      console.table(res.data);
+      this.setState({
+        _id: res.data._id,
+        username: res.data.username,
+        name: res.data.name,
+        email: res.data.name,
+        country: res.data.email,
+        about: res.data.about,
+        instagram: res.data.instagram,
+        twitter: res.data.twitter,
+        fb: res.data.fb,
+        website: res.data.website,
+      });
+    });
   }
 
   createUser = (e) => {
     e.preventDefault();
 
-    Axios.put(
-      `http://localhost:4000/api/users/${this.state.username}`,
-      this.state
-    ).then((res) => {
+    Axios.put(`http://localhost:4000/api/users/`, this.state).then((res) => {
       console.log(res);
       if (res.statusText === "OK") {
         this.setState({ showmodal: true });
@@ -184,6 +179,10 @@ export default class UpdateProfile extends Component {
           <br />
           <button type="submit">Update Profile</button>
         </form>
+
+        <h2>Update Profile</h2>
+        <button onClick={this.props.onClose}>Close</button>
+        <div>{this.props.children}</div>
 
         {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
           <h1>Modal Window Info</h1>

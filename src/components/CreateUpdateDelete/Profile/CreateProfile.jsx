@@ -9,6 +9,7 @@ export default class CreateProfile extends Component {
 
     this.state = {
       id: Date.now(),
+      _id: "",
       username: "",
       name: "",
       email: "",
@@ -21,7 +22,8 @@ export default class CreateProfile extends Component {
       website: "",
       postModal: false,
     };
-    console.log(this.state.id);
+    console.log(this.state._id);
+    //this log the
   }
 
   postProfile = (event) => {
@@ -167,8 +169,10 @@ export default class CreateProfile extends Component {
           />
           <br />
 
-          <button type="submit">Create Profile</button>
+          <button type="submit">Submit Profile</button>
         </form>
+        <button onClick={this.props.onClose}>Close</button>
+        <div>{this.props.children}</div>
 
         {/* <Modal postModal={this.state.postModal} onClose={this.onClose}>
           <h1>Modal Window Info</h1>
