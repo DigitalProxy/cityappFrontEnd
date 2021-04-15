@@ -79,6 +79,7 @@ class FeedCard extends Component {
           return (
             <div>
               <Collection
+                _id={item._id}
                 key={index}
                 title={item.title}
                 name={item.name}

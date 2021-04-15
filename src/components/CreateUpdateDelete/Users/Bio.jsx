@@ -64,6 +64,20 @@ class Bio extends Component {
     window.location.reload(false);
   }
 
+  deletePost = (e) => {
+    console.log(this.props.item._id)
+    axios.delete(`http://localhost:4000/api/bss_username/${this.props.item._id}`).then(
+      (res) => {
+        console.log(res);
+        if (res.statusText === "OK") {
+          alert("Successful Deletion");
+        } else {
+          alert("Nothing was Deleted")
+        }
+      }
+    );
+  }
+
   // componentDidMount() {
   //   axios
   //   .get(`http://localhost:4000/api/bss_username/${this.state.title}`)
@@ -111,7 +125,7 @@ class Bio extends Component {
         <h1 style={titleSpacing}>{this.props.item.title}</h1>
 
 
-        <button>UPDATE</button>
+        <button onClick={this.deletePost}>UPDATE</button>
         <button>DELETE</button>
 
 
