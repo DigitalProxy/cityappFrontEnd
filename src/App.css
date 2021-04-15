@@ -40,7 +40,7 @@
     position: absolute;
     animation: slide-gallery-right 2s .5s forwards;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
 }
 
