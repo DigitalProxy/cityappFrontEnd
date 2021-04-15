@@ -38,12 +38,7 @@ var randomStats = {
   fontWeight: "bold",
   marginTop: "2px",
   marginLeft: "5px",
-<<<<<<< HEAD
 };
-=======
-}
-// END STYLES
->>>>>>> dc26469222dc2df3a28625c2a438216980f94cfb
 
 class FeedCard extends Component {
   constructor(props) {
@@ -88,7 +83,6 @@ class FeedCard extends Component {
   render() {
     let current_screen;
 
-<<<<<<< HEAD
     if (this.state.isFeed) {
       current_screen = (
         <div>
@@ -110,27 +104,6 @@ class FeedCard extends Component {
 
                 {/* knows the title */}
 
-=======
-    if(this.state.isFeed){
-      current_screen = <div>
-        {this.state.fullStack.map((item, index) => {
-          return (
-            <div>
-              <Collection
-                _id={item._id}
-                key={index}
-                title={item.title}
-                name={item.name}
-                email={item.email}
-                type={item.type_id}
-                filepath={item.filepath}
-                id={item.id}
-                item={item}
-                titleCallback={this.titleCallback}
-
-              />
-              <div style={socialStyle}>
->>>>>>> dc26469222dc2df3a28625c2a438216980f94cfb
                 <div style={socialStyle}>
                   <div style={socialStyle}>
                     <Link style={spacing} to="/like">
@@ -231,11 +204,7 @@ class FeedCard extends Component {
     } else {
       current_screen = <Bio item={this.state.item} />;
     }
-    return (
-      <div className="feed">
-        {current_screen}
-      </div>
-    );
+    return <div className="feed">{current_screen}</div>;
   }
 }
 export default FeedCard;
