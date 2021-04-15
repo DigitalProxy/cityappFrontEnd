@@ -52,6 +52,14 @@ var pStyle2 = {
   marginTop: "2px",
 };
 
+var categoryType = [
+  "buildings",
+  "streets",
+  "surroundings",
+]
+ 
+
+
 class Collection extends Component {
   constructor(props) {
     super(props)
@@ -63,19 +71,19 @@ class Collection extends Component {
     }
   }
 
-  categoryType = (e) => {
-    var category = "";
-    if (this.state.type_id === "1") {
-      category = "buildings"
-      // console.log("build")
-    } else if (this.state.type_id === "2") {
-      category = "streets"
-      // console.log("street")
-    } else if (this.state.type_id === "3") {
-      category = "surroundings"
-      // console.log("surround")
-    }
-  }
+  // categoryType = (e) => {
+  //   var category = "";
+  //   if (this.state.type_id === "1") {
+  //     category = "buildings"
+  //     // console.log("build")
+  //   } else if (this.state.type_id === "2") {
+  //     category = "streets"
+  //     // console.log("street")
+  //   } else if (this.state.type_id === "3") {
+  //     category = "surroundings"
+  //     // console.log("surround")
+  //   }
+  // }
 
   refreshList = (e) => {
     axios.get(this.state.url).then((res) => {
@@ -146,7 +154,7 @@ class Collection extends Component {
               </div>
               <div style={titleStyle}>
                 <p style={pStyle1}>
-                  CATEGORY - <strong>{this.props.category}</strong>
+                  CATEGORY - <strong>{Math.floor(Math.random() * categoryType.length + 1)}</strong>
                 </p>
                 <p style={pStyle2}>
                   POSTED BY: {this.props.name} -{" "}
@@ -154,7 +162,7 @@ class Collection extends Component {
             </p>
               </div>
             </div>
-            {/* <Link
+            <Link
           onClick={this.shipID}
           state={{ _id: this.props._id }}
           to="/bio"
@@ -172,18 +180,13 @@ class Collection extends Component {
             <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
             <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
           </svg>
-        </Link> */}
+        </Link>
           </div>
+          
           <div>
             <h2 style={imgTitleStyle}>{this.props.title}</h2>
-            {/* <button onClick={this.deletePost}>delete</button> */}
           </div>
-          {/* <Link
-        onClick={this.shipTitle}
-        state={{ title: this.props.title }}
-        to="/bio"
-      >
-      </Link> */}
+
           <img onClick={this.shipTitle} src={this.props.filepath} />
 
         </div>
