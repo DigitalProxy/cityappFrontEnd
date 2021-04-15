@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Router, Link, navigate } from "@reach/router";
+import { Link } from "@reach/router";
 import MenuIcon from './MenuIcon'
 import MenuSettingsIcon from './MenuSettingsIcon'
 import MenuProfileIcon from './MenuProfileIcon'
 import MenuAddIcon from './MenuAddIcon'
 import MenuLogIn from './MenuLogIn'
+import MenuScreenSaverIcon from './MenuScreenSaverIcon'
 
 export default class Menu extends Component {
     constructor(props){
@@ -24,6 +25,9 @@ export default class Menu extends Component {
 
         return (
             <div className="menu" >
+                <Link to="/screensaver">
+                <MenuScreenSaverIcon classname={this.state.isMenuActive ? "menu-circle menu-screensaver screen-icon-animate" : "menu-circle menu-screensaver screen-icon-animate-down"} />
+                </Link>
                 <MenuLogIn classname="menu-log-in" />
                 <Link to="/feed/add">
                 <MenuAddIcon classname={this.state.isMenuActive ? "menu-circle add-icon add-icon-animate" : "menu-circle add-icon add-icon-animate-down"} />

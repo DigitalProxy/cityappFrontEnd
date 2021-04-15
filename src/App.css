@@ -310,13 +310,24 @@
     background: none;
 }
 
-.add-icon, .profile-icon, .settings-icon {
+.add-icon, .profile-icon, .settings-icon, .menu-screensaver {
     position: absolute;
     bottom: 3px;
 }
 
 .add-icon-animate {
     animation: menu-expand-add 1s forwards;
+}
+
+.screen-icon-animate {
+    animation: menu-expand-screen 1s forwards;
+}
+
+.screen-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    background-color: white;
 }
 
 @keyframes App-logo-spin {
@@ -475,6 +486,10 @@ input[type="text"] {
   height: 300px;
 }
 
+.screen-icon-animate-down {
+    animation: menu-collapse-add 1s forwards;
+}
+
 .add-icon-animate-down {
     animation: menu-collapse-add 1s forwards;
 }
@@ -618,6 +633,15 @@ input[type="text"] {
     }
 }
 
+@keyframes menu-expand-screen {
+    from {
+        bottom: 3px;
+    }
+    to {
+        bottom: 400px;
+    }
+}
+
 @keyframes menu-expand-settings {
     from {
         bottom: 3px;
@@ -648,6 +672,15 @@ input[type="text"] {
 @keyframes menu-collapse-profile {
     from {
         bottom: 200px;
+    }
+    to {
+        bottom: 3px;
+    }
+}
+
+@keyframes menu-collapse-screen {
+    from {
+        bottom: 400px;
     }
     to {
         bottom: 3px;
