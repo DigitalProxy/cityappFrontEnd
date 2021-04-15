@@ -4,12 +4,13 @@ import { Router, Link, navigate } from "@reach/router";
 import axios from "axios";
 import Bio from "./CreateUpdateDelete/Users/Bio"
 
-var titleStyle = {
+// STYLES
+var cardInfo = {
   textAlign: "left",
   marginLeft: "10px",
 };
 
-var titleStyle2 = {
+var titleStyle = {
   display: "flex",
   marginLeft: "20px",
   marginTop: "10px",
@@ -36,7 +37,8 @@ var flexStyle = {
   display: "flex",
   justifyContent: "space-between",
 };
-var pStyle1 = {
+
+var gategoryStyle = {
   padding: "0",
   margin: "0",
   textTransform: "uppercase",
@@ -44,19 +46,14 @@ var pStyle1 = {
   marginTop: "3px",
 };
 
-var pStyle2 = {
+var postedStyle = {
   padding: "0",
   margin: "0",
   textTransform: "uppercase",
   fontSize: "10px",
   marginTop: "2px",
 };
-
-var categoryType = [
-  "buildings",
-  "streets",
-  "surroundings",
-]
+// END STYLES
  
 
 
@@ -65,25 +62,10 @@ class Collection extends Component {
     super(props)
 
     this.state = {
-      // title: "",
       isFeed: true,
       category: "",
-    }
-  }
-
-  // categoryType = (e) => {
-  //   var category = "";
-  //   if (this.state.type_id === "1") {
-  //     category = "buildings"
-  //     // console.log("build")
-  //   } else if (this.state.type_id === "2") {
-  //     category = "streets"
-  //     // console.log("street")
-  //   } else if (this.state.type_id === "3") {
-  //     category = "surroundings"
-  //     // console.log("surround")
-  //   }
-  // }
+    };
+  };
 
   refreshList = (e) => {
     axios.get(this.state.url).then((res) => {
@@ -93,34 +75,16 @@ class Collection extends Component {
   };
 
   shipTitle = (evt) => {
-    // console.log(this.props.title);
     this.setState({ item: this.props.item, isFeed: false });
     this.props.titleCallback(this.props.item)
-    // this.props.titleCallback("TITLE")
-
   };
 
   render() {
-
-    // let current_screen;
-
-    // if(this.state.isFeed){
-    //   current_screen = 
-    // }
-
-    // else{
-    //   current_screen = <Bio title={this.props.title}/>
-    // }
-
     return (
       <div key={this.props.key}>
-
-
-        {/* // feed */}
         <div>
-          {/* <UserButton/> */}
           <div style={flexStyle}>
-            <div style={titleStyle2}>
+            <div style={titleStyle}>
               <div>
                 <svg
                   width="29"
@@ -152,11 +116,11 @@ class Collection extends Component {
                   <circle cx="13.304" cy="13.005" r="1.34536" fill="white" />
                 </svg>
               </div>
-              <div style={titleStyle}>
-                <p style={pStyle1}>
-                  CATEGORY - <strong>{Math.floor(Math.random() * categoryType.length + 1)}</strong>
+              <div style={cardInfo}>
+                <p style={gategoryStyle}>
+                  CATEGORY - <strong>BUILDINGS</strong>
                 </p>
-                <p style={pStyle2}>
+                <p style={postedStyle}>
                   POSTED BY: {this.props.name} -{" "}
                   {Math.floor(Math.random() * 24 + 1)}H
             </p>
@@ -182,7 +146,7 @@ class Collection extends Component {
           </svg>
         </Link>
           </div>
-          
+
           <div>
             <h2 style={imgTitleStyle}>{this.props.title}</h2>
           </div>
