@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 import axios from "axios";
+import Bio from "./CreateUpdateDelete/Users/Bio"
 
 var titleStyle = {
   textAlign: "left",
@@ -52,6 +53,30 @@ var pStyle2 = {
 };
 
 class Collection extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      // title: "",
+      isFeed: true,
+      category: "",
+    }
+  }
+
+  categoryType = (e) => {
+    var category = "";
+    if (this.state.type_id === "1") {
+      category = "buildings"
+      // console.log("build")
+    } else if (this.state.type_id === "2") {
+      category = "streets"
+      // console.log("street")
+    } else if (this.state.type_id === "3") {
+      category = "surroundings"
+      // console.log("surround")
+    }
+  }
+
   refreshList = (e) => {
     axios.get(this.state.url).then((res) => {
       console.log(res.data);
@@ -59,9 +84,31 @@ class Collection extends Component {
     });
   };
 
+  shipTitle = (evt) => {
+    // console.log(this.props.title);
+    this.setState({ item: this.props.item, isFeed: false });
+    this.props.titleCallback(this.props.item)
+    // this.props.titleCallback("TITLE")
+
+  };
+
   render() {
+
+    // let current_screen;
+
+    // if(this.state.isFeed){
+    //   current_screen = 
+    // }
+
+    // else{
+    //   current_screen = <Bio title={this.props.title}/>
+    // }
+
     return (
       <div key={this.props.key}>
+
+
+        {/* // feed */}
         <div>
           {/* <UserButton/> */}
           <div style={flexStyle}>
@@ -99,46 +146,48 @@ class Collection extends Component {
               </div>
               <div style={titleStyle}>
                 <p style={pStyle1}>
-                  CATEGORY - <strong>BUILDINGS</strong>
+                  CATEGORY - <strong>{this.props.category}</strong>
                 </p>
                 <p style={pStyle2}>
                   POSTED BY: {this.props.name} -{" "}
                   {Math.floor(Math.random() * 24 + 1)}H
-                </p>
+            </p>
               </div>
             </div>
-            <Link
-              onClick={this.shipID}
-              state={{ _id: this.props._id }}
-              to="/bio"
-              to="/post"
-            >
-              <svg
-                style={spacing}
-                width="3"
-                height="13"
-                viewBox="0 0 3 13"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="1.5" cy="1.5" r="1.5" fill="#1F1F1F" />
-                <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
-                <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
-              </svg>
-            </Link>
+            {/* <Link
+          onClick={this.shipID}
+          state={{ _id: this.props._id }}
+          to="/bio"
+          to="/post"
+        >
+          <svg
+            style={spacing}
+            width="3"
+            height="13"
+            viewBox="0 0 3 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="1.5" cy="1.5" r="1.5" fill="#1F1F1F" />
+            <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
+            <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
+          </svg>
+        </Link> */}
           </div>
           <div>
             <h2 style={imgTitleStyle}>{this.props.title}</h2>
             {/* <button onClick={this.deletePost}>delete</button> */}
           </div>
-          <Link
-            onClick={this.shipFilePath}
-            state={{ filepath: this.props.filepath }}
-            to="/bio"
-          >
-            <img src={this.props.filepath} />
-          </Link>
+          {/* <Link
+        onClick={this.shipTitle}
+        state={{ title: this.props.title }}
+        to="/bio"
+      >
+      </Link> */}
+          <img onClick={this.shipTitle} src={this.props.filepath} />
+
         </div>
+
       </div>
     );
   }

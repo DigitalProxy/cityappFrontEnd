@@ -4,6 +4,7 @@ import { Router, Link, navigate } from "@reach/router";
 
 var spacing = {
   marginTop: "50%",
+  marginLeft: "32%",
 };
 
 var loginStyle = {

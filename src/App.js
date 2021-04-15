@@ -15,6 +15,7 @@ import BioPage from './components/BioPage'
 import AddPostForm from './components/form/AddPostForm'
 
 function App() {
+  
   return (
     <div className="App">
     <Router>
