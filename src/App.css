@@ -33,15 +33,19 @@
 }
 
 .slideshow-container {
-    height: 60vh;
+    height: 70vh;
     width: 80vw;
     overflow: hidden;
     margin: 0 0 0 100vw;
     position: absolute;
     animation: slide-gallery-right 2s .5s forwards;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+}
+
+.slideshow-container img {
+    height: inherit;
 }
 
 @keyframes slide-down {
@@ -133,9 +137,10 @@
     position: relative;
     z-index: 2;
     margin: 10px 5vw;
-    font-size: 5vh;
+    font-size: 3vh;
     line-height: 8.5vh;
     margin-left: 5vw;
+    color: #CE2E4A;
 }
 
 @keyframes headings-loop-plant {
@@ -243,7 +248,7 @@
 .loop {
     width: 75vw;
     height: 1.5vh;
-    background: black;
+    background: #CE2E4A;
     position: absolute;
     border-radius: 2px;
     margin: 3.5vh 0 0 -100vw;
@@ -263,6 +268,7 @@
 }
 
 .chch {
+    color: black;
     margin-left: -100vw;
     animation: link-grow .5s 6.5s, slide-landing-headings-right 1s 1s forwards;
 }
@@ -271,7 +277,7 @@
     margin-left: -100vw;
     width: 72vw;
     height: 1.2vh;
-    background: #CE2E4A;
+    background: black;
     position: absolute;
     animation: link-grow .5s 7s, slide-landing-headings-right 1s 1.3s forwards;
 }
@@ -304,13 +310,24 @@
     background: none;
 }
 
-.add-icon, .profile-icon, .settings-icon {
+.add-icon, .profile-icon, .settings-icon, .menu-screensaver {
     position: absolute;
     bottom: 3px;
 }
 
 .add-icon-animate {
     animation: menu-expand-add 1s forwards;
+}
+
+.screen-icon-animate {
+    animation: menu-expand-screen 1s forwards;
+}
+
+.screen-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    background-color: white;
 }
 
 @keyframes App-logo-spin {
@@ -469,6 +486,10 @@ input[type="text"] {
   height: 300px;
 }
 
+.screen-icon-animate-down {
+    animation: menu-collapse-add 1s forwards;
+}
+
 .add-icon-animate-down {
     animation: menu-collapse-add 1s forwards;
 }
@@ -612,6 +633,15 @@ input[type="text"] {
     }
 }
 
+@keyframes menu-expand-screen {
+    from {
+        bottom: 3px;
+    }
+    to {
+        bottom: 400px;
+    }
+}
+
 @keyframes menu-expand-settings {
     from {
         bottom: 3px;
@@ -642,6 +672,15 @@ input[type="text"] {
 @keyframes menu-collapse-profile {
     from {
         bottom: 200px;
+    }
+    to {
+        bottom: 3px;
+    }
+}
+
+@keyframes menu-collapse-screen {
+    from {
+        bottom: 400px;
     }
     to {
         bottom: 3px;
