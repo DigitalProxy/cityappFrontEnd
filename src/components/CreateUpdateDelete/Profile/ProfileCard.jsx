@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Router, Link, navigate } from "@reach/router";
+// import { Router, Link, navigate } from "@reach/router";
 import ProfileCollection from "../Profile/ProfileCollection";
 import CreateModal from "../Profile/CreateProfile";
 import UpdateModal from "../Profile/UpdateModal";
