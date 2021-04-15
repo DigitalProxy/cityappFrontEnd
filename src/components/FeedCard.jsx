@@ -6,6 +6,7 @@ import axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
 //APP PAGES
 import Collection from "./Collection";
+import Bio from "./CreateUpdateDelete/Users/Bio";
 
 // STYLES
 var Style1 = {
@@ -44,6 +45,8 @@ class FeedCard extends Component {
     this.state = {
       url: "http://localhost:4000/api/bss",
       fullStack: [],
+      item: {},
+      isFeed: true,
     };
   }
 
@@ -63,9 +66,15 @@ class FeedCard extends Component {
     this.setState({ _id: this.props._id });
   };
 
+  titleCallback = (item) => {
+    this.setState({item: item, isFeed: false})
+  }
+
   render() {
-    return (
-      <div className="feed">
+    let current_screen;
+
+    if(this.state.isFeed){
+      current_screen = <div>
         {this.state.fullStack.map((item, index) => {
           return (
             <div>
@@ -77,7 +86,12 @@ class FeedCard extends Component {
                 type={item.type_id}
                 filepath={item.filepath}
                 id={item.id}
+                item={item}
+                titleCallback={this.titleCallback}
+
               />
+
+              {/* knows the title */}
 
               <div style={socialStyle}>
                 <div style={socialStyle}>
@@ -174,6 +188,15 @@ class FeedCard extends Component {
             </div>
           );
         })}
+      </div>
+    }
+
+    else{
+      current_screen = <Bio item={this.state.item}/>
+    }
+    return (
+      <div className="feed">
+        {current_screen}
         {/* <Menu /> */}
       </div>
     );
