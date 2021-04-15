@@ -42,24 +42,16 @@ export default class LoginPage extends Component {
     console.log(this.props.username);
     this.setState({ username: this.props.username });
     localStorage.setItem("username", this.state.username)
-    // localStorage.setItem("username", this.state.username)
   };
 
   userNameChanged = (evt) => {
     this.setState({ username: evt.target.value})
     console.log(evt.target.value)
-    // localStorage.setItem("username", this.state.username)
   }
 
   render() {
     return (
       <div className="loginBody">
-        {/* <h1>LOGIN/LOGOUT</h1> */}
-
-        {/* <div className="cover">
-          
-        </div> */}
-
         <svg
           style={spacing}
           width="127"
@@ -168,16 +160,6 @@ export default class LoginPage extends Component {
           <input style={loginInput} type="password" placeholder="PASSWORD" />
           <br />
 
-          {/* set value to this.state */}
-
-          {/* <Link style={loginButton}>
-          <input ></input>
-          </Link> */}
-
-          {/* onChange={this.setState({username: this.props.username})} */}
-
-          {/* <input onClick={this.shipUserName} state={{ username: this.props.username }} style={loginButton} type="submit" value="LOG IN"></input> */}
-
           <Link
             onClick={this.shipUserName}
             state={{ username: this.props.username }}
@@ -191,16 +173,6 @@ export default class LoginPage extends Component {
             <p>SIGN UP</p>
           </div>
         </form>
-
-
-        {/* <Link
-          style={loginButton}
-          onClick={this.shipUserName}
-          state={{ username: this.props.username }}
-          to="/profile"
-        ></Link> */}
-
-        {/* <MenuPage /> */}
       </div>
     );
   }

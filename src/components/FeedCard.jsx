@@ -9,21 +9,13 @@ import Collection from "./Collection";
 import Bio from "./CreateUpdateDelete/Users/Bio";
 
 // STYLES
-var Style1 = {
-  backgroundColor: "D8D0C9",
-};
-
 var socialStyle = {
   display: "flex",
-  // alignContent: "space-between",
   justifyContent: "space-between",
-  // marginLeft: "20px",
-  // paddingTop: "5px",
 };
 
 var shareStyle = {
   display: "flex",
-  // width: "414px",
   marginRight: "20px",
   marginTop: "2px",
 };
@@ -31,7 +23,6 @@ var shareStyle = {
 var linkStyle = {
   textDecoration: "none",
   color: "#1f1f1f",
-  // marginTop: "5px",
 };
 
 var spacing = {
@@ -40,7 +31,6 @@ var spacing = {
   marginBottom: "2px",
   display: "flex",
   textDecoration: "none",
-
 };
 
 var randomStats = {
@@ -48,9 +38,8 @@ var randomStats = {
   fontWeight: "bold",
   marginTop: "2px",
   marginLeft: "5px",
-
-
 }
+// END STYLES
 
 class FeedCard extends Component {
   constructor(props) {
@@ -105,9 +94,6 @@ class FeedCard extends Component {
                 titleCallback={this.titleCallback}
 
               />
-
-              {/* knows the title */}
-
               <div style={socialStyle}>
                 <div style={socialStyle}>
                   <Link style={spacing} to="/like">
@@ -155,7 +141,6 @@ class FeedCard extends Component {
     return (
       <div className="feed">
         {current_screen}
-        {/* <Menu /> */}
       </div>
     );
   }

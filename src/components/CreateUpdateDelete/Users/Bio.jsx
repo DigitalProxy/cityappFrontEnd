@@ -3,7 +3,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Router, Link, navigate } from "@reach/router";
 import User from "../Users/User";
+// import FeedModal from "./FeedModal.js";
 
+// CSS INLINE STYLES
 var imageSpacing = {
   width: "295px",
   position: "fixed",
@@ -23,13 +25,11 @@ var eyeSee = {
 var backButton = {
   position: "fixed",
   zIndex: "2",
-  // width: "300px",
 }
 
 var nameSpacing = {
   marginTop: "320px",
   marginLeft: "20px",
-  // marginTop: "50px",
   position: "fixed",
   color: "#CE2E4A",
   fontSize: "70px",
@@ -40,14 +40,12 @@ var nameSpacing = {
 var titleSpacing = {
   marginLeft: "30px",
   paddingTop: "500px",
-  // color: "#CE2E4A",
   color: "#1f1f1f",
   textTransform: "uppercase",
   width: "260px",
 }
 
 var userSpacing = {
-  // marginLeft: "30px",
   fontSize: "20px",
   position: "fixed",
   left: "30px",
@@ -76,40 +74,57 @@ var bgColor = {
   position: "fixed"
 }
 
-
-var buttons = {
+var updateButton = {
   backgroundColor: "#FF5F5F",
   color: "white",
   border: "0px",
   padding: "5px",
   marginLeft: "35px",
-  // position: "fixed",
-  marginTop: "150px",
+  position: "fixed",
+  bottom: "70px",
+  left: "70px"
 };
+
+var deleteButton = {
+  backgroundColor: "#FF5F5F",
+  color: "white",
+  border: "0px",
+  padding: "5px",
+  marginLeft: "35px",
+  position: "fixed",
+  bottom: "70px",
+}
 
 class Bio extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userbio: {
-        // username: "",
-        // about: "",
-        // city: "",
-        // country: "",
-        // title: "",
-      },
-      // console.log(this.props.location.state.username),
+     show: false
     };
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
-  navigateBack() {
+  showModal = () => {
+    this.setState({ show: true });
+  }
+
+  hideModal = () => {
+    this.setState({ show: false })
+  }
+
+  refreshPage() {
     window.location.reload(false);
+  }
+
+  openDeleteModal = (e) => {
+    this.setState({ modal: true })
   }
 
   deletePost = (e) => {
     console.log(this.props.item._id)
-    axios.delete(`http://localhost:4000/api/bss_username/${this.props.item._id}`).then(
+    axios.delete(`http://localhost:4000/api/bss_username/${this.props.item._title}`).then(
       (res) => {
         console.log(res);
         if (res.statusText === "OK") {
@@ -119,48 +134,13 @@ class Bio extends Component {
         }
       }
     );
-
-    // console.log(this.props.item._id)
-    // axios.delete(`http://localhost:4000/api/bss_username/${this.props.item.title}`).then(
-    //   (res) => {
-    //     console.log(res);
-    //     if (res.statusText === "OK") {
-    //       alert("Successful Deletion");
-    //     } else {
-    //       alert("Nothing was Deleted")
-    //     }
-    //   }
-    // );
   }
 
-  // componentDidMount() {
-  //   axios
-  //   .get(`http://localhost:4000/api/bss_username/${this.state.title}`)
-  //     .then((res) => {
-  //       // console.log(this.state.title);
-  //       // console.log(res.data);
-  //       this.setState({ userbio: res.data });
-  //     });
-  // }
-
-  // shipID = (evt) => {
-  //   console.log(this.props.location.state.id);
-  //   this.setState({ id: this.props.location.state.id });
-  // };
-
-  render() {
-    // console.table(this.state.userbio);
-    // console.log(this.state.username);
-
+  render() { 
     return (
-      <div style={bgColor}>
-        {/* <User
-          title={this.state.userbio.title}
-          // about={this.state.userbio.about}
-          // city={this.state.userbio.city}
-          // country={this.state.userbio.country}
-        /> */}
-        {/* <h1>post</h1> */}
+      <div style={bgColor}>  
+        <div >
+  </div>
 
         <svg style={ eyeSee } width="369" height="332" viewBox="0 0 369 332" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.702 0.175999H14.387V3.971H5.785V6.156H13.145V9.79H5.785V12.205H14.548V16H0.702V0.175999Z" fill="black" />
@@ -171,7 +151,7 @@ class Bio extends Component {
           <path d="M325.152 37.6C325.8 37.6 326.36 37.704 326.832 37.912C327.312 38.112 327.68 38.4 327.936 38.776C328.2 39.152 328.332 39.588 328.332 40.084C328.332 40.548 328.216 40.968 327.984 41.344C327.752 41.72 327.46 42.052 327.108 42.34C326.756 42.628 326.272 42.98 325.656 43.396C325.312 43.62 325.032 43.812 324.816 43.972H328.428V46H321.588V45.424C321.588 45 321.684 44.624 321.876 44.296C322.076 43.96 322.364 43.624 322.74 43.288C323.124 42.952 323.676 42.496 324.396 41.92C324.972 41.464 325.376 41.116 325.608 40.876C325.84 40.636 325.956 40.4 325.956 40.168C325.956 39.92 325.868 39.712 325.692 39.544C325.524 39.376 325.268 39.292 324.924 39.292C324.564 39.292 324.28 39.396 324.072 39.604C323.864 39.812 323.76 40.084 323.76 40.42V40.66H321.624C321.616 40.596 321.612 40.508 321.612 40.396C321.612 39.532 321.912 38.852 322.512 38.356C323.12 37.852 324 37.6 325.152 37.6ZM325.008 50.6C326.296 50.6 327.2 50.968 327.72 51.704C328.248 52.432 328.512 53.488 328.512 54.872C328.512 56.256 328.248 57.316 327.72 58.052C327.2 58.78 326.296 59.144 325.008 59.144C323.712 59.144 322.8 58.78 322.272 58.052C321.752 57.316 321.492 56.256 321.492 54.872C321.492 53.488 321.752 52.432 322.272 51.704C322.8 50.968 323.712 50.6 325.008 50.6ZM325.008 52.22C324.592 52.22 324.296 52.38 324.12 52.7C323.944 53.02 323.856 53.544 323.856 54.272V55.46C323.856 56.196 323.944 56.724 324.12 57.044C324.296 57.364 324.592 57.524 325.008 57.524C325.424 57.524 325.716 57.364 325.884 57.044C326.052 56.724 326.136 56.196 326.136 55.46V54.272C326.136 53.536 326.052 53.012 325.884 52.7C325.716 52.38 325.424 52.22 325.008 52.22ZM325.152 63.6C325.8 63.6 326.36 63.704 326.832 63.912C327.312 64.112 327.68 64.4 327.936 64.776C328.2 65.152 328.332 65.588 328.332 66.084C328.332 66.548 328.216 66.968 327.984 67.344C327.752 67.72 327.46 68.052 327.108 68.34C326.756 68.628 326.272 68.98 325.656 69.396C325.312 69.62 325.032 69.812 324.816 69.972H328.428V72H321.588V71.424C321.588 71 321.684 70.624 321.876 70.296C322.076 69.96 322.364 69.624 322.74 69.288C323.124 68.952 323.676 68.496 324.396 67.92C324.972 67.464 325.376 67.116 325.608 66.876C325.84 66.636 325.956 66.4 325.956 66.168C325.956 65.92 325.868 65.712 325.692 65.544C325.524 65.376 325.268 65.292 324.924 65.292C324.564 65.292 324.28 65.396 324.072 65.604C323.864 65.812 323.76 66.084 323.76 66.42V66.66H321.624C321.616 66.596 321.612 66.508 321.612 66.396C321.612 65.532 321.912 64.852 322.512 64.356C323.12 63.852 324 63.6 325.152 63.6ZM328.488 83.152V85H322.26V83.152H324.216V79.42H322.26V78.028C322.796 77.996 323.396 77.856 324.06 77.608C324.724 77.352 325.304 77.06 325.8 76.732H326.604V83.152H328.488Z" fill="#1F1F1F" />
         </svg>
 
-        <svg style={ backButton } onClick={this.navigateBack} width="128" height="122" viewBox="0 0 128 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg style={ backButton } onClick={this.refreshPage} width="128" height="122" viewBox="0 0 128 122" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M64.9237 1L1 63.8877L59.0532 121L66.5289 113.62L21.277 69.1016H127V58.6738H21.277L72.3994 8.37989L64.9237 1Z" stroke="black" />
         </svg>
 
@@ -181,8 +161,8 @@ class Bio extends Component {
         <h1 style={userSpacing}>{this.props.item.username}</h1>
 
 
-        <button style={buttons}>UPDATE</button>
-        <button style={buttons} onClick={this.deletePost}>DELETE</button>
+        <button style={updateButton}>UPDATE</button>
+        <button style={deleteButton} onClick={this.showModal}>DELETE</button>
 
 
         <svg style={logoBottom} width="168" height="33" viewBox="0 0 168 33" fill="none" xmlns="http://www.w3.org/2000/svg">
