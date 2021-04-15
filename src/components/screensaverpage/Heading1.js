@@ -8,9 +8,9 @@ export default class Heading1 extends Component {
             <div className="heading-1">
                 <div>
                     <div className="loop" ></div>
-                    <h1 className='plant' >PLANT</h1>
-                    <h1 className="place" >PLACE</h1>
-                    <h1 className="peple" >PEPLE</h1>
+                    <h1 className='plant' >STREET</h1>
+                    <h1 className="place" >BUILDING</h1>
+                    <h1 className="peple" >SURROUND</h1>
                 </div>
                 <h1 className="red chch">CHCH</h1>
                 <div className="underline"></div>
