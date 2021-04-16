@@ -844,3 +844,45 @@ input[type="text"] {
     border: #CE2E4A solid 2px;
     background: none;
 }
+
+.update-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.update-profile form {
+    background: #D8D0C9;
+    padding: 20px;
+}
+
+.update-profile h1 {
+    margin-bottom: 20px;
+    color: #CE2E4A;
+}
+
+.update-profile label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #CE2E4A;
+    font-weight: bold;
+}
+
+.update-profile input {
+    background: none;
+    border: #CE2E4A solid 2px;
+}
+
+.update-profile button {
+    border: #CE2E4A solid 2px;
+    background: none;
+    color: #CE2E4A;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+}
