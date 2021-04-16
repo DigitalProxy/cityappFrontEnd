@@ -26,11 +26,15 @@ export default class Menu extends Component {
 
         return (
             <div className="menu" >
+                <Link to="/feed">
                 <MenuHomeIcon  classname={this.state.isMenuActive ? "menu-circle menu-home home-icon-animate" : "menu-circle menu-home home-icon-animate-down"} />
+                </Link>
                 <Link to="/screensaver">
                 <MenuScreenSaverIcon classname={this.state.isMenuActive ? "menu-circle menu-screensaver screen-icon-animate" : "menu-circle menu-screensaver screen-icon-animate-down"} />
                 </Link>
+                <Link to="/login">
                 <MenuLogIn classname="menu-log-in" />
+                </Link>
                 <Link to="/feed/add">
                 <MenuAddIcon classname={this.state.isMenuActive ? "menu-circle add-icon add-icon-animate" : "menu-circle add-icon add-icon-animate-down"} />
                 </Link>
