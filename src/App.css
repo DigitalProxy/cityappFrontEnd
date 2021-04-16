@@ -741,7 +741,7 @@ input[type="text"] {
     align-items: center;
     background: #D8D0C9;
     padding-top: 1vh;
-    padding-bottom: 1.5vh;
+    padding-bottom: 4vh;
 }
 
 .form-container form {
@@ -749,7 +749,7 @@ input[type="text"] {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 30px 0 20px;
+    padding: 30px 0 0;
 }
 
 .back {
@@ -793,15 +793,18 @@ input[type="text"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .delete-box {
-    width: 80vw;
-    height: 20vh;
     background-color: #D8D0C9;
     text-align: center;
-    padding: 20px;
     color: #CE2E4A;
+    width: 90vw;
+}
+
+.delete-box h3 {
+    font-size: 5vw;
 }
 
 .submit-button {
@@ -821,4 +824,12 @@ input[type="text"] {
     color: #CE2E4A;
     background-color: #D8D0C9;
     border: #CE2E4A solid 2px;
+}
+
+.form-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #CE2E4A;
+    border: #CE2E4A solid 2px;
+    background: none;
 }

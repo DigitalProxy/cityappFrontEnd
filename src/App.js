@@ -12,6 +12,7 @@ import PostPage from "./components/PostPage";
 import ScreenSaverPage from "./components/screensaverpage/ScreenSaverPage";
 import BioPage from './components/BioPage'
 import AddPostForm from './components/form/AddPostForm'
+import UpdatePost from './components/CreateUpdateDelete/Post/UpdatePost'
 
 function App() {
   
@@ -26,6 +27,7 @@ function App() {
       <ScreenSaverPage path="/screensaver"/>
       <BioPage path="/BioPage" />
       <AddPostForm path="/feed/add/" />
+      <UpdatePost path="/update" />
     </Router>
     </div>
   );

@@ -113,53 +113,64 @@ export default class UpdateModal extends Component {
 
   render() {
     return (
-      <div className="form-wrapper">
-        <form className="special" onSubmit={this.updatePost}>
-          <label>Title:</label>
+      <div className="form-container">
+        <h3>Update Post</h3>
+        <form className="special update-post" onSubmit={this.updatePost}>
+          <label>Title:
           <br />
           <input
+            className="input"
             type="text"
             name="title"
             onChange={this.handleTitle}
             defaultValue={this.state.title}
           />
+          </label>
           <br />
-          <label>Username:</label>
+          <label>Username:
           <br />
           <input
+            className="input"
             type="text"
             name="username"
             onChange={this.handleUserName}
             defaultValue={this.state.username}
           />
+          </label>
           <br />
-          <label>Name:</label>
+          <label>Name:
           <br />
           <input
+            className="input"
             type="text"
             name="name"
             onChange={this.handleName}
             defaultValue={this.state.name}
           />
+          </label>
           <br />
-          <label>Email:</label>
+          <label>Email:
           <br />
           <input
+            className="input"
             type="text"
             name="email"
             onChange={this.handleEmail}
             defaultValue={this.state.email}
           />
+          </label>
           <br />
-          <label>Image Link:</label>
+          <label>Image Link:
           <br />
           <input
+            className="input"
             type="text"
             id="filepath"
             name="filepath"
             onChange={this.handleFilePath}
             defaultValue={this.state.filepath}
           />
+          </label>
           <br />
           <label>Category:</label>
           <br />
@@ -194,6 +205,7 @@ export default class UpdateModal extends Component {
           />
           <br />
         </form>
+        <button className="update form-button">Update Post</button>
         <div className="delete-form">
           <div className="delete-box">
             <h3>Are you sure you want to update this post?</h3>
