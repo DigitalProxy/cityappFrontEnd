@@ -4,14 +4,12 @@ import './Styling.css';
 //PACKAGES
 import { Router } from "@reach/router";
 //PAGES & COMPONENTS
-
 import LoginPage from "./components/LoginPage";
 
 import FeedPage from "./components/FeedPage";
 import ProfilePage from "./components/ProfilePage";
 import PostPage from "./components/PostPage";
 import ScreenSaverPage from "./components/screensaverpage/ScreenSaverPage";
-
 
 function App() {
   

@@ -126,60 +126,77 @@ export default class UpdateModal extends Component {
     this.setState({ showmodal: false });
   };
 
+
   render() {
     return (
       <div className="form-wrapper">
         <h1>UPDATE</h1>
         <form className="special" onSubmit={this.updatePost}>
-          <label>Title:</label>
+
+          <label>Title:
           <br />
           <input
+            className="input"
             type="text"
             name="title"
             onChange={this.handleTitle}
             defaultValue={this.state.title}
           />
+          </label>
           <br />
-          <label>Username:</label>
+
+          <label>Username:
           <br />
           <input
+            className="input"
             type="text"
             name="username"
             onChange={this.handleUserName}
             defaultValue={this.state.username}
           />
+          </label>
+
           <br />
-          <label>Name:</label>
+          <label>Name:
           <br />
           <input
+            className="input"
             type="text"
             name="name"
             onChange={this.handleName}
             defaultValue={this.state.name}
           />
+          </label>
           <br />
-          <label>Email:</label>
+
+          <label>Email:
           <br />
           <input
+            className="input"
             type="text"
             name="email"
             onChange={this.handleEmail}
             defaultValue={this.state.email}
           />
+          </label>
           <br />
-          <label>Image Link:</label>
+
+          <label>Image Link:
           <br />
           <input
+            className="input"
             type="text"
             id="filepath"
             name="filepath"
             onChange={this.handleFilePath}
             defaultValue={this.state.filepath}
           />
+          </label>
           <br />
+
           <label>Category:</label>
           <br />
-          <label>Buildings:</label>
+          <label>Buildings:
           <input
             type="radio"
             id="type_id"
@@ -188,8 +205,11 @@ export default class UpdateModal extends Component {
             onChange={this.handleTypeID}
             defaultValue={this.state.typeID}
           />
+          </label>
           <br />
-          <label>Streets:</label>
+          
+
+          <label>Streets:
           <input
             type="radio"
             id="type_id"
@@ -198,8 +218,10 @@ export default class UpdateModal extends Component {
             onChange={this.handleTypeID}
             defaultValue={this.state.typeID}
           />
+          </label>
           <br />
-          <label>Surroundings:</label>
+
+          <label>Surroundings:
           <input
             type="radio"
             id="type_id"
@@ -208,8 +230,12 @@ export default class UpdateModal extends Component {
             onChange={this.handleTypeID}
             defaultValue={this.state.typeID}
           />
+          </label>
           <br />
         </form>
+
+        <button className="update form-button">Update Post</button>
+
         <div className="delete-form">
           <div className="delete-box">
             <h3>Are you sure you want to update this post?</h3>
@@ -224,14 +250,6 @@ export default class UpdateModal extends Component {
             </button>
           </div>
         </div>
-
-        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
-      <h1>New Post</h1>
-      <h1>Complete</h1>
-      <p>
-        {this.state.username} {this.state.title} has been added.
-      </p>
-      </Modal> */}
       </div>
     );
   }

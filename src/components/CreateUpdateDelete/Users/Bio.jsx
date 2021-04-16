@@ -1,5 +1,6 @@
 //**BIO**
 import React, { Component } from "react";
+import CreateModal from "../Post/CreateModal";
 // import axios from "axios";
 // import { Router, Link, navigate } from "@reach/router";
 
@@ -84,15 +85,15 @@ var buttons = {
   left: "70px",
 };
 
-// var deleteButton = {
-//   backgroundColor: "#FF5F5F",
-//   color: "white",
-//   border: "0px",
-//   padding: "5px",
-//   marginLeft: "35px",
-//   position: "fixed",
-//   bottom: "70px",
-// }
+var deleteButton = {
+  backgroundColor: "#FF5F5F",
+  color: "white",
+  border: "0px",
+  padding: "5px",
+  marginLeft: "35px",
+  position: "fixed",
+  bottom: "70px",
+}
 
 class Bio extends Component {
   constructor(props) {
@@ -101,8 +102,8 @@ class Bio extends Component {
     this.state = {
       show: false,
     };
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
+    // this.showModal = this.showModal.bind(this);
+    // this.hideModal = this.hideModal.bind(this);
   }
 
   showModal = () => {
@@ -160,6 +161,8 @@ class Bio extends Component {
     console.log(this.props.type_id);
     console.log(this.props._id);
     localStorage.setItem("type_id", this.state.type_id);
+    this.showModal()
+    //open the modal here as well
   };
 
 
@@ -204,7 +207,7 @@ class Bio extends Component {
 
         <svg
           style={backButton}
-          onClick={this.navigateBack}
+          onClick={this.refreshPage}
           width="128"
           height="122"
           viewBox="0 0 128 122"
@@ -272,6 +275,19 @@ class Bio extends Component {
         </svg>
 
         <div style={footer}></div>
+                {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
+          <h1>New Post</h1>
+          <h1>Complete</h1>
+          <p>
+            {this.state.username} {this.state.title} has been added.
+          </p>
+        </Modal> */}
+
+        {/* We need three different modals to run here */}
+        <Modal showModal={this.state.show}>
+          <CreateModal />
+        </Modal>
+
       </div>
     );
   }

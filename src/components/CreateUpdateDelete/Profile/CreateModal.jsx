@@ -14,7 +14,7 @@ class CreateModal extends Component {
 
     return (
       <div className="form-wrapper">
-        <h1>Delete Post:</h1>
+        <h1>Create Post:</h1>
         <CreateProfile />
       </div>
     );

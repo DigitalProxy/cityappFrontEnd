@@ -6,6 +6,7 @@ import MenuProfileIcon from './MenuProfileIcon'
 import MenuAddIcon from './MenuAddIcon'
 import MenuLogIn from './MenuLogIn'
 import MenuScreenSaverIcon from './MenuScreenSaverIcon'
+import MenuHomeIcon from './MenuHomeIcon'
 
 export default class Menu extends Component {
     constructor(props){
@@ -25,14 +26,21 @@ export default class Menu extends Component {
 
         return (
             <div className="menu" >
+                <Link to="/feed">
+                <MenuHomeIcon  classname={this.state.isMenuActive ? "menu-circle menu-home home-icon-animate" : "menu-circle menu-home home-icon-animate-down"} />
+                </Link>
                 <Link to="/screensaver">
                 <MenuScreenSaverIcon classname={this.state.isMenuActive ? "menu-circle menu-screensaver screen-icon-animate" : "menu-circle menu-screensaver screen-icon-animate-down"} />
                 </Link>
+                <Link to="/">
                 <MenuLogIn classname="menu-log-in" />
+                </Link>
                 <Link to="/feed/add">
                 <MenuAddIcon classname={this.state.isMenuActive ? "menu-circle add-icon add-icon-animate" : "menu-circle add-icon add-icon-animate-down"} />
                 </Link>
+                <Link to="/profile">
                 <MenuProfileIcon classname={this.state.isMenuActive ? "menu-circle profile-icon profile-icon-animate" : "menu-circle profile-icon profile-icon-animate-down"} />
+                </Link>
                 <MenuSettingsIcon classname={this.state.isMenuActive ? "menu-circle settings-icon settings-icon-animate" : "menu-circle settings-icon settings-icon-animate-down"} />
                 <MenuIcon toggleMenu={this.toggleMenu} />
             </div>

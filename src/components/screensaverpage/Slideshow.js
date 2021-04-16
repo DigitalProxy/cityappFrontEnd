@@ -31,8 +31,8 @@ export default class Slideshow extends Component {
         })
     }
 
-    render() {        
-        console.log(this.state.randomImage)
+    render() { 
+        console.log(this.state.randomImage)       
         return (
             <div className="slideshow-container">
                 <img src={this.state.randomImage.filepath} alt=" " />
