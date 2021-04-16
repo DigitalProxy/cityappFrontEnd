@@ -4,7 +4,6 @@ import './Styling.css';
 //PACKAGES
 import { Router } from "@reach/router";
 //PAGES & COMPONENTS
-import LandingPage from './components/LandingPage'
 import LoginPage from "./components/LoginPage";
 import MenuPage from "./components/MenuPage";
 import FeedPage from "./components/FeedPage";
@@ -19,8 +18,7 @@ function App() {
   return (
     <div className="App">
     <Router>
-      <LoginPage path="/login"/>
-      <LandingPage path="/"/>
+      <LoginPage path="/"/>
       <MenuPage path="/account"/>
       <FeedPage path="/feed"/>
       <ProfilePage path="/profile"/>

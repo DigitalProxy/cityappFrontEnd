@@ -32,7 +32,7 @@ export default class Menu extends Component {
                 <Link to="/screensaver">
                 <MenuScreenSaverIcon classname={this.state.isMenuActive ? "menu-circle menu-screensaver screen-icon-animate" : "menu-circle menu-screensaver screen-icon-animate-down"} />
                 </Link>
-                <Link to="/login">
+                <Link to="/">
                 <MenuLogIn classname="menu-log-in" />
                 </Link>
                 <Link to="/feed/add">
