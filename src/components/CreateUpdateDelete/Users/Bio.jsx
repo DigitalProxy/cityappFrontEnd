@@ -198,7 +198,7 @@ class Bio extends Component {
         CREATE</button>
         <button style={deleteButton} onClick={this.updateModal2}>
         UPDATE</button>
-        <button  onClick={this.updateModal3}>
+        <button className="delete-btn" onClick={this.updateModal3}>
         DELETE</button>
 
         <svg
