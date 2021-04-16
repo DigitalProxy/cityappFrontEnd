@@ -54,7 +54,7 @@ var postedStyle = {
   marginTop: "2px",
 };
 // END STYLES
- 
+
 
 
 class Collection extends Component {
@@ -118,7 +118,8 @@ class Collection extends Component {
               </div>
               <div style={cardInfo}>
                 <p style={gategoryStyle}>
-                  CATEGORY - <strong>BUILDINGS</strong>
+                  {/* CATEGORY - <strong>BUILDINGS</strong> */}
+                  EYESEE <strong>CHRISTCHURCH </strong>
                 </p>
                 <p style={postedStyle}>
                   POSTED BY: {this.props.name} -{" "}
@@ -126,25 +127,26 @@ class Collection extends Component {
             </p>
               </div>
             </div>
-            <Link
+            {/* <Link
           onClick={this.shipID}
           state={{ _id: this.props._id }}
           to="/bio"
           to="/post"
         >
-          <svg
-            style={spacing}
-            width="3"
-            height="13"
-            viewBox="0 0 3 13"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="1.5" cy="1.5" r="1.5" fill="#1F1F1F" />
-            <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
-            <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
-          </svg>
-        </Link>
+      
+        </Link> */}
+            <svg
+              style={spacing}
+              width="3"
+              height="13"
+              viewBox="0 0 3 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="1.5" cy="1.5" r="1.5" fill="#1F1F1F" />
+              <circle cx="1.5" cy="6.5" r="1.5" fill="#1F1F1F" />
+              <circle cx="1.5" cy="11.5" r="1.5" fill="#1F1F1F" />
+            </svg>
           </div>
 
           <div>

@@ -85,15 +85,15 @@ var buttons = {
   left: "70px",
 };
 
-// var deleteButton = {
-//   backgroundColor: "#FF5F5F",
-//   color: "white",
-//   border: "0px",
-//   padding: "5px",
-//   marginLeft: "35px",
-//   position: "fixed",
-//   bottom: "70px",
-// }
+var deleteButton = {
+  backgroundColor: "#FF5F5F",
+  color: "white",
+  border: "0px",
+  padding: "5px",
+  marginLeft: "35px",
+  position: "fixed",
+  bottom: "70px",
+}
 
 class Bio extends Component {
   constructor(props) {
@@ -196,7 +196,7 @@ class Bio extends Component {
 
         <svg
           style={backButton}
-          onClick={this.navigateBack}
+          onClick={this.refreshPage}
           width="128"
           height="122"
           viewBox="0 0 128 122"
@@ -217,7 +217,7 @@ class Bio extends Component {
         <h1 style={userSpacing}>{this.props.item.username}</h1>
 
         <button style={buttons}>UPDATE</button>
-        <button style={buttons} onClick={this.shipID}>
+        <button style={deleteButton} onClick={this.shipID}>
           DELETE
         </button>
 
