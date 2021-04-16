@@ -6,12 +6,12 @@ export default class DeleteModal extends Component {
     super(props);
 
     this.state = {
-      id: "",
+      _id: this.props.item._id,
       username: "",
       title: "",
       name: "",
       email: "",
-      type_id: "",
+      type_id: this.props.item.type_id,
       filepath: "",
       comment: "",
       showmodal: false,
@@ -22,9 +22,10 @@ export default class DeleteModal extends Component {
   deletePost = (e) => {
     var createURL = "";
     //should have name type_id "cateogory"
-    console.log("spot>>>>TYPE_ID>>>>>>", this.state.type_id);
-    console.log("spot>>ID>>>>>>>>>>", this.state._id);
-    console.log("spot>>ID>>>>>>>>>>", typeof this.state._id);
+    // console.log("spot>>>>TYPE_ID>>>>>>", this.state.item.type_id);
+    // console.log("spot>>ID>>>>>>>>>>", this.state.item._id);
+    // console.log("spot>>ID>>>>>>>>>>", typeof this.state.item._id);
+      window.location.reload(false);
 
     if (this.state.type_id === "1") {
       createURL = "buildings";
@@ -36,10 +37,10 @@ export default class DeleteModal extends Component {
       createURL = "surroundings";
       console.log("surround");
     }
-    console.log("deleting ", this.props._id);
+    console.log(`http://localhost:4000/api/${createURL}/${this.state._id}`);
 
     Axios.delete(
-      `http://localhost:4000/api/${createURL}${this.state._id}`
+      `http://localhost:4000/api/${createURL}/${this.state._id}`
     ).then((res) => {
       if (res.data.deletedCount >= 1) {
         console.log(">>>> successful deletion");
@@ -48,7 +49,6 @@ export default class DeleteModal extends Component {
         console.log(">>>> nothing deleted");
       }
     });
-    console.log("could I run the refresh in here?");
   };
 
   // refreshCollection = (e) => {
@@ -62,6 +62,7 @@ export default class DeleteModal extends Component {
     return (
       <div>
         <h1>DELETE</h1>
+        <button onClick={this.deletePost}>DELETE ME!</button>
         <div className="delete-form">
           <div className="delete-box">
             <h3>Are you sure you want to delete this post?</h3>
@@ -71,7 +72,8 @@ export default class DeleteModal extends Component {
               onClick={this.deletePost}
               //not sure where this sends the props to.  Back to Feed?
               action={this.props.refreshCollection}
-            >
+              
+            > 
               Yes
             </button>
           </div>
