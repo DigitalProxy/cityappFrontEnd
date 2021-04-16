@@ -879,10 +879,11 @@ input[type="text"] {
     border: #CE2E4A solid 2px;
 }
 
-.update-profile button {
+.update-profile button, .add-container button {
     border: #CE2E4A solid 2px;
     background: none;
     color: #CE2E4A;
     font-size: 1.4rem;
     padding: 10px 20px;
 }
+

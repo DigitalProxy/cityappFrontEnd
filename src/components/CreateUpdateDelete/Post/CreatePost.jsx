@@ -92,7 +92,7 @@ export default class CreatePost extends Component {
 
   render() {
     return (
-      <div className="form-container">
+      <div className="form-container add-container">
         <h3>Add Post</h3>
         <form className="add-post" onSubmit={this.createPost}>
           <label>Title:</label>
