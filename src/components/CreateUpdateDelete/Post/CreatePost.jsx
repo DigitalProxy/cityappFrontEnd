@@ -188,20 +188,20 @@ export default class CreatePost extends Component {
           <button type="submit">Create post</button>
         </form>
 
-        <div className="delete-form">
+        {/* <div className="delete-form">
           <div className="delete-box">
             <h3>Are you sure you want to delete this post?</h3>
             <button className="cancel-button">Go Back</button>
             <button
               className="delete-button"
-              onClick={this.deletePost}
+              onClick={this.createPost}
               //not sure where this sends the props to.  Back to Feed?
               action={this.props.refreshCollection}
             >
               Yes
             </button>
           </div>
-        </div>
+        </div> */}
 
         {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
           <h1>New Post</h1>

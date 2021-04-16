@@ -31,8 +31,23 @@ export default class UpdateModal extends Component {
 
   //get the DB object using the filepath
   componentDidMount() {
+
+    var createURL = "";
+    console.log("spot>>>>>>>>>>", this.state.type_id);
+    console.log("spot>>>>>>>>>>", typeof this.state.type_id);
+
+    if (this.state.type_id === "1") {
+      createURL = "buildings";
+      console.log("build");
+    } else if (this.state.type_id === "2") {
+      createURL = "streets";
+      console.log("street");
+    } else if (this.state.type_id === "3") {
+      createURL = "surroundings";
+      console.log("surround");
+    }
     Axios.get(
-      `http://localhost:4000/api/${this.state.id}/${this.state._id}`
+      `http://localhost:4000/api/${createURL}/${this.state._id}`
     ).then((res) => {
       console.table(res.data);
       this.setState({
@@ -114,6 +129,7 @@ export default class UpdateModal extends Component {
   render() {
     return (
       <div className="form-wrapper">
+        <h1>UPDATE</h1>
         <form className="special" onSubmit={this.updatePost}>
           <label>Title:</label>
           <br />

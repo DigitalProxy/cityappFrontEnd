@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 // import { Router, Link, navigate } from "@reach/router";
-// import Modal from "../Profile/Modal";
+
 
 export default class CreateProfile extends Component {
   constructor(props) {

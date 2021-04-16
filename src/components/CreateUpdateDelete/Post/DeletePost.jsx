@@ -61,6 +61,7 @@ export default class DeleteModal extends Component {
   render() {
     return (
       <div>
+        <h1>DELETE</h1>
         <div className="delete-form">
           <div className="delete-box">
             <h3>Are you sure you want to delete this post?</h3>

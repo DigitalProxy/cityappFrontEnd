@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CreatePost from "./CreatePost";
 
-export default class DeleteModal extends Component {
+export default class CreateModal extends Component {
   //   onClose = (e) => {
   //   console.log("123");
   //   // this.props.showmodal = false;

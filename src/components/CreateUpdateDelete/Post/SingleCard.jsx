@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 // import { Router, Link, navigate } from "@reach/router";
 // import Axios from "axios";
+import CreatePost from "../Post/CreatePost";
+import UpdatePost from "../Post/UpdatePost";
+import DeletePost from "../Post/DeletePost";
 
 //single image card
 class SingleCard extends Component {
@@ -16,12 +19,9 @@ class SingleCard extends Component {
     return (
       <div key={this.props.key}>
         <div>
-          <h1>Hello Single</h1>
-          <h2>{this.props.username}</h2>
-          <h2>{this.props.title}</h2>
-          <button>Create</button>
-          <button>Update</button>
-          <button>Delete</button>
+          <CreatePost/>
+          <UpdatePost/>
+          <DeletePost/>
         </div>
       </div>
     );

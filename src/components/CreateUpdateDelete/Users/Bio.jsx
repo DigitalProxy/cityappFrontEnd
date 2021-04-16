@@ -1,9 +1,8 @@
 //**BIO**
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 // import { Router, Link, navigate } from "@reach/router";
-// import User from "../Users/User";
-// import FeedModal from "./FeedModal.js";
+
 
 // CSS INLINE STYLES
 var imageSpacing = {
@@ -118,22 +117,22 @@ class Bio extends Component {
     window.location.reload(false);
   }
 
-  openDeleteModal = (e) => {
-    this.setState({ modal: true });
-  };
+  // openDeleteModal = (e) => {
+  //   this.setState({ modal: true });
+  // };
 
-  deletePost = (e) => {
-    console.log(this.props.item._id);
-    axios
-      .delete(`http://localhost:4000/api/bss_username/${this.props.item._id}`)
-      .then((res) => {
-        console.log(res);
-        if (res.statusText === "OK") {
-          alert("Successful Deletion");
-        } else {
-          alert("Nothing was Deleted");
-        }
-      });
+  // deletePost = (e) => {
+  //   console.log(this.props.item._id);
+  //   axios
+  //     .delete(`http://localhost:4000/api/bss_username/${this.props.item._id}`)
+  //     .then((res) => {
+  //       console.log(res);
+  //       if (res.statusText === "OK") {
+  //         alert("Successful Deletion");
+  //       } else {
+  //         alert("Nothing was Deleted");
+  //       }
+  //     });
 
     // console.log(this.props.item._id)
     // axios.delete(`http://localhost:4000/api/bss_username/${this.props.item.title}`).then(
@@ -146,19 +145,28 @@ class Bio extends Component {
     //     }
     //   }
     // );
+  
+
+  // shipID = (evt) => {
+  //   console.log(this.props.type_id);
+  //   this.setState({ type_id: this.props.type_id });
+  //   localStorage.setItem("type_id", this.state.type_id);
+  //   // localStorage.setItem("username", this.state.username)
+  // };
+
+  shipDetails = (evt) => {
+    this.setState({ type_id: this.props.type_id });
+    this.setState({ _id: this.props._id });
+    console.log(this.props.type_id);
+    console.log(this.props._id);
+    localStorage.setItem("type_id", this.state.type_id);
   };
 
-  shipID = (evt) => {
-    console.log(this.props.type_id);
-    this.setState({ type_id: this.props.type_id });
-    localStorage.setItem("type_id", this.state.type_id);
-    // localStorage.setItem("username", this.state.username)
-  };
 
   render() {
     return (
       <div style={bgColor}>
-        <div></div>
+        
 
         <svg
           style={eyeSee}
@@ -216,10 +224,14 @@ class Bio extends Component {
         <h1 style={titleSpacing}>{this.props.item.title}</h1>
         <h1 style={userSpacing}>{this.props.item.username}</h1>
 
-        <button style={buttons}>UPDATE</button>
-        <button style={buttons} onClick={this.shipID}>
-          DELETE
-        </button>
+        {/* THIS IS WHERE THE POST BUTTONS ARE 
+        _id and type_id ship to create/update/delete*/}
+        <button style={buttons} onClick={this.shipDetails}>
+        UPDATE</button>
+        <button style={buttons} onClick={this.shipDetails}>
+        DELETE</button>
+        <button style={buttons} onClick={this.shipDetails}>
+        UPDATE</button>
 
         <svg
           style={logoBottom}

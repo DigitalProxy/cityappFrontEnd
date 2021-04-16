@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Link, navigate } from "@reach/router";
+// import { Router, Link, navigate } from "@reach/router";
 
 //single user
 class User extends Component {

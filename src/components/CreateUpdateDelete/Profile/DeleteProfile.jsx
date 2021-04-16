@@ -8,7 +8,7 @@ export default class DeleteProfile extends Component {
     super(props);
 
     this.state = {
-      _id: "",
+      _id: this.props._id,
       username: "",
       name: "",
       email: "",
@@ -22,7 +22,7 @@ export default class DeleteProfile extends Component {
     };
     console.log(this.state.id);
   }
-
+  //this.props.location.id
   // componentDidMount() {
   //   Axios.get(`http://localhost:4000/api/users/${this.state.username}`).then(
   //     (res) => {
