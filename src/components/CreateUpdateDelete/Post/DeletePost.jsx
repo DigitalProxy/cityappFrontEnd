@@ -19,6 +19,10 @@ export default class DeleteModal extends Component {
     };
   }
 
+  refreshPage() {
+    window.location.reload(false);
+  }
+
   deletePost = (e) => {
     var createURL = "";
       window.location.reload(false);
@@ -56,12 +60,16 @@ export default class DeleteModal extends Component {
 
   render() {
     return (
-      <div>
-        <h1>DELETE</h1>
+      <div className="form-wrapper update-profile">
+        <h1>Are you sure you want to delete this post?</h1>
+        <h3></h3>
+
         <button onClick={this.deletePost}>DELETE ME!</button>
-        <div className="delete-form">
+        {/* <button onClick={this.refreshPage}>CLOSE</button> */}
+        {/* <button onClick={() => this.props.callback()}>CLOSE</button> */}
+
+        {/* <div className="delete-form">
           <div className="delete-box">
-            <h3>Are you sure you want to delete this post?</h3>
             <button className="cancel-button">Go Back</button>
             <button
               className="delete-button"
@@ -72,7 +80,7 @@ export default class DeleteModal extends Component {
               Yes
             </button>
           </div>
-        </div>
+        </div> */}
 
       </div>
     );

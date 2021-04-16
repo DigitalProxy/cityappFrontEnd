@@ -125,7 +125,7 @@ export default class UpdateModal extends Component {
 
   render() {
     return (
-      <div className="form-wrapper">
+      <div className="form-wrapper update-profile">
         <h1>UPDATE</h1>
         <form className="special" onSubmit={this.updatePost}>
 
