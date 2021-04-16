@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CreateProfile from "../Profile/CreateProfile";
+import CreateProfile from "./CreateProfile";
 
 var modalStyle = {
   position: "absolute",

@@ -11,6 +11,16 @@
     color: #CE2E4A;
 }
 
+.Modal {
+    position: absolute;
+    top: 0;
+    /* left: 33%; */
+    background-color: #D8D0C9;
+    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+}
+
 /*landing page*/
 .landing {
     overflow: hidden;
@@ -742,6 +752,7 @@ input[type="text"] {
     background: #D8D0C9;
     padding-top: 1vh;
     padding-bottom: 4vh;
+    width: 100vw;
 }
 
 .form-container form {

@@ -1,6 +1,8 @@
 //**BIO**
 import React, { Component } from "react";
-import CreateModal from "../Post/CreateModal";
+import Modal1 from "../Post/Modal1";
+import Modal2 from "../Post/Modal2";
+import Modal3 from "../Post/Modal3";
 // import axios from "axios";
 // import { Router, Link, navigate } from "@reach/router";
 
@@ -8,7 +10,7 @@ import CreateModal from "../Post/CreateModal";
 // CSS INLINE STYLES
 var imageSpacing = {
   width: "295px",
-  position: "fixed",
+  position: "absolute",
   objectFit: "cover",
   margin: "35px 35px",
   height: "400px",
@@ -16,14 +18,14 @@ var imageSpacing = {
 };
 
 var eyeSee = {
-  position: "fixed",
+  position: "absolute",
   zIndex: "2",
   margin: "0px 35px",
   width: "300px",
 };
 
 var backButton = {
-  position: "fixed",
+  position: "absolute",
   zIndex: "2",
   // width: "300px",
 };
@@ -31,7 +33,7 @@ var backButton = {
 var nameSpacing = {
   marginTop: "320px",
   marginLeft: "20px",
-  position: "fixed",
+  position: "absolute",
   color: "#CE2E4A",
   fontSize: "70px",
   textTransform: "uppercase",
@@ -47,7 +49,7 @@ var titleSpacing = {
 
 var userSpacing = {
   fontSize: "20px",
-  position: "fixed",
+  position: "absolute",
   left: "30px",
   bottom: "320px",
   color: "#CE2E4A",
@@ -57,12 +59,12 @@ var footer = {
   backgroundColor: "#1f1f1f",
   width: "100vw",
   height: "15px",
-  position: "fixed",
+  position: "absolute",
   bottom: "0",
 };
 
 var logoBottom = {
-  position: "fixed",
+  position: "absolute",
   bottom: "25px",
   left: "35px",
 };
@@ -71,7 +73,7 @@ var bgColor = {
   backgroundColor: "#D8D0C9",
   height: "100vh",
   width: "100vw",
-  position: "fixed",
+  position: "absolute",
 };
 
 var buttons = {
@@ -80,7 +82,7 @@ var buttons = {
   border: "0px",
   padding: "5px",
   marginLeft: "35px",
-  position: "fixed",
+  position: "absolute",
   bottom: "70px",
   left: "70px",
 };
@@ -91,9 +93,11 @@ var deleteButton = {
   border: "0px",
   padding: "5px",
   marginLeft: "35px",
-  position: "fixed",
+  position: "absolute",
   bottom: "70px",
 }
+
+
 
 class Bio extends Component {
   constructor(props) {
@@ -101,7 +105,11 @@ class Bio extends Component {
 
     this.state = {
       show: false,
-      isShowingUpdateModal: false,
+      isShowingUpdateModal1: false,
+      isShowingUpdateModal2: false,
+      isShowingUpdateModal3: false,
+      _id: this.props.item._id,
+      type_id: this.props.item.type_id,
     };
     // this.showModal = this.showModal.bind(this);
     // this.hideModal = this.hideModal.bind(this);
@@ -148,18 +156,32 @@ class Bio extends Component {
   //   // localStorage.setItem("username", this.state.username)
   // };
 
-  shipDetails = (evt) => {
-    this.setState({ type_id: this.props.type_id });
-    this.setState({ _id: this.props._id });
-    console.log(this.props.type_id);
-    console.log(this.props._id);
-    localStorage.setItem("type_id", this.state.type_id);
-    this.updateModal()
-    //open the modal here as well
-  };
+  // shipDetails = (evt) => {
+  //   console.log(this.props.item.type_id);
+  //   console.log(this.props.item._id);
+  // };
 
-  updateModal = (evt) => {
-    this.setState({ isShowingUpdateModal: true })
+  updateModal1 = (evt) => {
+    this.setState({ isShowingUpdateModal1: true })
+
+    console.log(this.props.item._id)
+    console.log(this.props.item.type_id)
+    console.log(this.state._id)
+    console.log(this.state._type_id)
+  }
+  updateModal2 = (evt) => {
+    this.setState({ isShowingUpdateModal2: true })
+    this.setState({ _id: this.props.item_id})
+    this.setState({ type_id: this.props.item.type_id})
+    console.log(this.props.item._id)
+    console.log(this.props.item.type_id)
+  }
+  updateModal3 = (evt) => {
+    this.setState({ isShowingUpdateModal3: true })
+    this.setState({ _id: this.props.item_id})
+    this.setState({ type_id: this.props.item.type_id})
+    console.log(this.props.item._id)
+    console.log(this.props.item.type_id)
   }
 
   render() {
@@ -225,12 +247,12 @@ class Bio extends Component {
 
         {/* THIS IS WHERE THE POST BUTTONS ARE 
         _id and type_id ship to create/update/delete*/}
-        <button style={buttons} onClick={this.shipDetails}>
+        <button style={buttons} onClick={this.updateModal1}>
+        CREATE</button>
+        <button style={deleteButton} onClick={this.updateModal2}>
         UPDATE</button>
-        <button style={buttons} onClick={this.shipDetails}>
+        <button  onClick={this.updateModal3}>
         DELETE</button>
-        <button style={buttons} onClick={this.shipDetails}>
-        UPDATE</button>
 
         <svg
           style={logoBottom}
@@ -280,7 +302,9 @@ class Bio extends Component {
         </Modal> */}
 
         {/* We need three different modals to run here */}
-        <Modal callback={() => this.setState({isShowingUpdateModal: false})} show={this.state.isShowingUpdateModal}/>
+        <Modal1 callback={() => this.setState({isShowingUpdateModal1: false})} show={this.state.isShowingUpdateModal1} />
+        <Modal2 callback={() => this.setState({isShowingUpdateModal2: false})} item={this.props.item} show={this.state.isShowingUpdateModal2}/>
+        <Modal3 callback={() => this.setState({isShowingUpdateModal3: false})} item={this.props.item} show={this.state.isShowingUpdateModal3}/>
       </div>
     );
   }

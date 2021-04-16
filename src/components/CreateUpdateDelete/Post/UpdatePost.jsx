@@ -5,12 +5,12 @@ export default class UpdateModal extends Component {
     super(props);
 
     this.state = {
-      _id: "",
+      _id: this.props.item._id,
       username: "",
       title: "",
       name: "",
       email: "",
-      type_id: "",
+      type_id: this.props.item.type_id,
       filepath: "",
       comment: "",
       showmodal: false,
@@ -34,6 +34,7 @@ export default class UpdateModal extends Component {
 
     var createURL = "";
     console.log("spot>>>>>>>>>>", this.state.type_id);
+    console.log("spot>>>>>>>>>>", this.state._id)
     console.log("spot>>>>>>>>>>", typeof this.state.type_id);
 
     if (this.state.type_id === "1") {
@@ -46,6 +47,7 @@ export default class UpdateModal extends Component {
       createURL = "surroundings";
       console.log("surround");
     }
+    console.log(`http://localhost:4000/api/${createURL}/${this.state._id}`)
     Axios.get(
       `http://localhost:4000/api/${createURL}/${this.state._id}`
     ).then((res) => {
@@ -53,6 +55,7 @@ export default class UpdateModal extends Component {
       this.setState({
         id: res.data.id,
         username: res.data.username,
+        name: res.data.name,
         title: res.data.title,
         email: res.data.email,
         type_id: res.data.type_id,
@@ -63,6 +66,8 @@ export default class UpdateModal extends Component {
 
   updatePost = (e) => {
     e.preventDefault();
+
+    console.log("heelp!")
 
     var updateURL = "";
     console.log("spot>>>>>>>>>>", this.state.type_id);
@@ -98,6 +103,7 @@ export default class UpdateModal extends Component {
 
   handleTitle = (e) => {
     this.setState({ title: e.target.value });
+    console.log({ title: e.target.value })
   };
 
   handleUserName = (e) => {
@@ -125,6 +131,10 @@ export default class UpdateModal extends Component {
     // this.props.showmodal = false;
     this.setState({ showmodal: false });
   };
+
+  testButton = (e) => {
+    console.log(">>>>>>>>>>TEST")
+  }
 
 
   render() {
@@ -234,7 +244,7 @@ export default class UpdateModal extends Component {
           <br />
         </form>
 
-        <button className="update form-button">Update Post</button>
+        <button className="update form-button" onClick={this.updatePost}>Update Post</button>
 
         <div className="delete-form">
           <div className="delete-box">
@@ -242,9 +252,9 @@ export default class UpdateModal extends Component {
             <button className="cancel-button">Go Back</button>
             <button
               className="delete-button"
-              onClick={this.updatePost}
+              onClick={this.testButton}
               //not sure where this sends the props to.  Back to Feed?
-              action={this.props.refreshCollection}
+              // action={this.props.refreshCollection}
             >
               Yes
             </button>

@@ -4,7 +4,7 @@ import axios from "axios";
 // import { Router, Link, navigate } from "@reach/router";
 // import User from "../Users/User";
 // import FeedModal from "./FeedModal.js";
-import Modal from "./Modal";
+import Modal from "./Modal1";
 
 // CSS INLINE STYLES
 var imageSpacing = {
