@@ -285,6 +285,7 @@
 /*menu*/
 .menu {
     position: fixed;
+    z-index: 999;
     bottom: 3vh;
     right: 10vw;
 }
@@ -310,9 +311,13 @@
     background: none;
 }
 
-.add-icon, .profile-icon, .settings-icon, .menu-screensaver {
+.add-icon, .profile-icon, .settings-icon, .menu-screensaver, .menu-home {
     position: absolute;
     bottom: 3px;
+}
+
+.home-icon-animate {
+    animation: menu-expand-home 1s forwards;
 }
 
 .add-icon-animate {
@@ -486,6 +491,10 @@ input[type="text"] {
   height: 300px;
 }
 
+.home-icon-animate-down {
+    animation: menu-collapse-home 1s forwards;
+}
+
 .screen-icon-animate-down {
     animation: menu-collapse-add 1s forwards;
 }
@@ -633,6 +642,15 @@ input[type="text"] {
     }
 }
 
+@keyframes menu-expand-home {
+    from {
+        bottom: 3px;
+    }
+    to {
+        bottom: 500px;
+    }
+}
+
 @keyframes menu-expand-screen {
     from {
         bottom: 3px;
@@ -666,6 +684,15 @@ input[type="text"] {
     }
     to {
         bottom: 200px;
+    }
+}
+
+@keyframes menu-collapse-home {
+    from {
+        bottom: 500px;
+    }
+    to {
+        bottom: 3px;
     }
 }
 

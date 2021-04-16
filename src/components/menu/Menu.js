@@ -6,6 +6,7 @@ import MenuProfileIcon from './MenuProfileIcon'
 import MenuAddIcon from './MenuAddIcon'
 import MenuLogIn from './MenuLogIn'
 import MenuScreenSaverIcon from './MenuScreenSaverIcon'
+import MenuHomeIcon from './MenuHomeIcon'
 
 export default class Menu extends Component {
     constructor(props){
@@ -25,6 +26,7 @@ export default class Menu extends Component {
 
         return (
             <div className="menu" >
+                <MenuHomeIcon  classname={this.state.isMenuActive ? "menu-circle menu-home home-icon-animate" : "menu-circle menu-home home-icon-animate-down"} />
                 <Link to="/screensaver">
                 <MenuScreenSaverIcon classname={this.state.isMenuActive ? "menu-circle menu-screensaver screen-icon-animate" : "menu-circle menu-screensaver screen-icon-animate-down"} />
                 </Link>
