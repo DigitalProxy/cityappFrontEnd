@@ -1,4 +1,3 @@
-//**LOGIN**
 import React, { Component } from "react";
 import { Router, Link, navigate } from "@reach/router";
 

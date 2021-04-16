@@ -21,10 +21,6 @@ export default class DeleteModal extends Component {
 
   deletePost = (e) => {
     var createURL = "";
-    //should have name type_id "cateogory"
-    // console.log("spot>>>>TYPE_ID>>>>>>", this.state.item.type_id);
-    // console.log("spot>>ID>>>>>>>>>>", this.state.item._id);
-    // console.log("spot>>ID>>>>>>>>>>", typeof this.state.item._id);
       window.location.reload(false);
 
     if (this.state.type_id === "1") {
@@ -70,7 +66,6 @@ export default class DeleteModal extends Component {
             <button
               className="delete-button"
               onClick={this.deletePost}
-              //not sure where this sends the props to.  Back to Feed?
               action={this.props.refreshCollection}
               
             > 
@@ -79,13 +74,6 @@ export default class DeleteModal extends Component {
           </div>
         </div>
 
-        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
-      <h1>New Post</h1>
-      <h1>Complete</h1>
-      <p>
-        {this.state.username} {this.state.title} has been added.
-      </p>
-      </Modal> */}
       </div>
     );
   }

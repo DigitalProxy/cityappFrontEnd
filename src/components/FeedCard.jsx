@@ -1,12 +1,8 @@
-//**CARD**
-//**REACT**
 import React, { Component } from "react";
-//AXIOS DATA MANAGEMENT
 import axios from "axios";
-import { Router, Link, navigate } from "@reach/router";
-//APP PAGES
 import Collection from "./Collection";
 import Bio from "./CreateUpdateDelete/Users/Bio";
+import { Router, Link, navigate } from "@reach/router";
 
 // STYLES
 var socialStyle = {
@@ -72,14 +68,6 @@ class FeedCard extends Component {
     this.setState({ item: item, isFeed: false });
   };
 
-  //props from DeletePost.jsx??
-  // refreshCollection = (e) => {
-  //   axios.get(this.state.url).then((res) => {
-  //     console.log(res.data);
-  //     this.setState({ writers: res.data });
-  //   });
-  // };
-
   render() {
     let current_screen;
 
@@ -101,8 +89,6 @@ class FeedCard extends Component {
                   item={item}
                   titleCallback={this.titleCallback}
                 />
-
-                {/* knows the title */}
 
                 <div style={socialStyle}>
                   <div style={socialStyle}>

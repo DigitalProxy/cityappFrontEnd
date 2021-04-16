@@ -4,8 +4,7 @@ import Axios from "axios";
 export default class CreatePost extends Component {
   constructor(props) {
     super(props);
-    //are we missing an id field in the handles?
-    //do we even need an empty state here?
+
     this.state = {
       id: "",
       username: "",
@@ -20,8 +19,6 @@ export default class CreatePost extends Component {
     };
   }
 
-  //put new post into DB
-  //somehow need to use the type_id from the from form input into the put command (use variable?)
   createPost = (e) => {
     e.preventDefault();
 
@@ -90,7 +87,6 @@ export default class CreatePost extends Component {
 
   onClose = (e) => {
     console.log("123");
-    // this.props.showmodal = false;
     this.setState({ showmodal: false });
   };
 
@@ -187,29 +183,7 @@ export default class CreatePost extends Component {
           <br />
           <button type="submit">Create post</button>
         </form>
-
-        {/* <div className="delete-form">
-          <div className="delete-box">
-            <h3>Are you sure you want to delete this post?</h3>
-            <button className="cancel-button">Go Back</button>
-            <button
-              className="delete-button"
-              onClick={this.createPost}
-              //not sure where this sends the props to.  Back to Feed?
-              action={this.props.refreshCollection}
-            >
-              Yes
-            </button>
-          </div>
-        </div> */}
-
-        {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
-          <h1>New Post</h1>
-          <h1>Complete</h1>
-          <p>
-            {this.state.username} {this.state.title} has been added.
-          </p>
-        </Modal> */}
+        
       </div>
     );
   }

@@ -1,11 +1,7 @@
-//**BIO**
 import React, { Component } from "react";
 import Modal1 from "../Post/Modal1";
 import Modal2 from "../Post/Modal2";
 import Modal3 from "../Post/Modal3";
-// import axios from "axios";
-// import { Router, Link, navigate } from "@reach/router";
-
 
 // CSS INLINE STYLES
 var imageSpacing = {
@@ -97,8 +93,6 @@ var deleteButton = {
   bottom: "70px",
 }
 
-
-
 class Bio extends Component {
   constructor(props) {
     super(props);
@@ -111,55 +105,11 @@ class Bio extends Component {
       _id: this.props.item._id,
       type_id: this.props.item.type_id,
     };
-    // this.showModal = this.showModal.bind(this);
-    // this.hideModal = this.hideModal.bind(this);
   }
 
   refreshPage() {
     window.location.reload(false);
   }
-
-  // openDeleteModal = (e) => {
-  //   this.setState({ modal: true });
-  // };
-
-  // deletePost = (e) => {
-  //   console.log(this.props.item._id);
-  //   axios
-  //     .delete(`http://localhost:4000/api/bss_username/${this.props.item._id}`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       if (res.statusText === "OK") {
-  //         alert("Successful Deletion");
-  //       } else {
-  //         alert("Nothing was Deleted");
-  //       }
-  //     });
-
-    // console.log(this.props.item._id)
-    // axios.delete(`http://localhost:4000/api/bss_username/${this.props.item.title}`).then(
-    //   (res) => {
-    //     console.log(res);
-    //     if (res.statusText === "OK") {
-    //       alert("Successful Deletion");
-    //     } else {
-    //       alert("Nothing was Deleted")
-    //     }
-    //   }
-    // );
-  
-
-  // shipID = (evt) => {
-  //   console.log(this.props.type_id);
-  //   this.setState({ type_id: this.props.type_id });
-  //   localStorage.setItem("type_id", this.state.type_id);
-  //   // localStorage.setItem("username", this.state.username)
-  // };
-
-  // shipDetails = (evt) => {
-  //   console.log(this.props.item.type_id);
-  //   console.log(this.props.item._id);
-  // };
 
   updateModal1 = (evt) => {
     this.setState({ isShowingUpdateModal1: true })
@@ -182,9 +132,6 @@ class Bio extends Component {
     this.setState({ type_id: this.props.item.type_id})
     console.log(this.props.item._id)
     console.log(this.props.item.type_id)
-
-
-
   }
 
   render() {
@@ -248,8 +195,6 @@ class Bio extends Component {
         <h1 style={titleSpacing}>{this.props.item.title}</h1>
         <h1 style={userSpacing}>{this.props.item.username}</h1>
 
-        {/* THIS IS WHERE THE POST BUTTONS ARE 
-        _id and type_id ship to create/update/delete*/}
         <button style={buttons} onClick={this.updateModal1}>
         CREATE</button>
         <button style={deleteButton} onClick={this.updateModal2}>
@@ -296,15 +241,7 @@ class Bio extends Component {
         </svg>
 
         <div style={footer}></div>
-                {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
-          <h1>New Post</h1>
-          <h1>Complete</h1>
-          <p>
-            {this.state.username} {this.state.title} has been added.
-          </p>
-        </Modal> */}
 
-        {/* We need three different modals to run here */}
         <Modal1 callback={() => this.setState({isShowingUpdateModal1: false})} item={this.props.item} show={this.state.isShowingUpdateModal1} />
         <Modal2 callback={() => this.setState({isShowingUpdateModal2: false})} item={this.props.item} show={this.state.isShowingUpdateModal2}/>
         <Modal3 callback={() => this.setState({isShowingUpdateModal3: false})} item={this.props.item} show={this.state.isShowingUpdateModal3}/>

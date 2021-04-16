@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Router, Link, navigate } from "@reach/router";
 import FeedCard from "./FeedCard";
 import Menu from './menu/Menu'
 

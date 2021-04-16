@@ -14,5 +14,4 @@ class Modal3 extends Component {
     );
   }
 }
-
 export default Modal3;

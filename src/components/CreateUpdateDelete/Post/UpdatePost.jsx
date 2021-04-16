@@ -17,19 +17,7 @@ export default class UpdateModal extends Component {
       success: false,
     };
   }
-  //this.state.location._id??
-  //this.state.location._type_id??
 
-  //needs to filter the DB by _id and type_id
-  //props get here from SingleCard.jsx e.g.
-  //shipDetails = (evt) => {
-  //  this.setState({ type_ID: this.props.type_id });
-  //  this.setState({ _id: this.props._id });
-  //  console.log(this.props.type_id);
-  //  console.log(this.props._id);
-  //};
-
-  //get the DB object using the filepath
   componentDidMount() {
 
     var createURL = "";
@@ -85,7 +73,6 @@ export default class UpdateModal extends Component {
       console.log("surround");
     }
 
-    //axios has to get the put the updated Form data back into the same DB object via UUID (or filepath?)
     console.log(`http://localhost:4000/api/${updateURL}/${this.state._id}`);
 
     Axios.put(
@@ -128,7 +115,6 @@ export default class UpdateModal extends Component {
 
   onClose = (e) => {
     console.log("123");
-    // this.props.showmodal = false;
     this.setState({ showmodal: false });
   };
 
@@ -246,20 +232,19 @@ export default class UpdateModal extends Component {
 
         <button className="update form-button" onClick={this.updatePost}>Update Post</button>
 
-        <div className="delete-form">
+{/* Emma's Pop-Up Buttons */}
+        {/* <div className="delete-form">
           <div className="delete-box">
             <h3>Are you sure you want to update this post?</h3>
             <button className="cancel-button">Go Back</button>
             <button
               className="delete-button"
               onClick={this.testButton}
-              //not sure where this sends the props to.  Back to Feed?
-              // action={this.props.refreshCollection}
             >
               Yes
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
