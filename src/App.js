@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
     <Router>
-      <LoginPage path="/login"/>
+      <LoginPage path="/"/>
       <FeedPage path="/feed"/>
       <ProfilePage path="/profile"/>
       <PostPage path="/post"/>

@@ -101,81 +101,90 @@ export default class UpdateProfile extends Component {
     //is there a way to run a component for the form and then nest another component for the "defaultValue" that feeds a $var into for the different
     //form inputs?  Prob not.
     return (
-      <div className="form-wrapper">
-        <h1>Update Profile:</h1>
+      <div className="form-wrapper update-profile">
 
         <form className="special" onSubmit={this.createUser}>
-          <label>Username:</label>
+        <h1>Update Profile:</h1>
+          <label>Username:
           <input
             type="text"
             name="username"
             onChange={this.handleUsername}
             defaultValue={this.state.username}
           />
+          </label>
           <br />
-          <label>Name:</label>
+          <label>Name:
           <input
             type="text"
             name="name"
             onChange={this.handleName}
             defaultValue={this.state.name}
           />
+          </label>
           <br />
-          <label>Email:</label>
+          <label>Email:
           <input
             type="text"
             name="email"
             onChange={this.handleEmail}
             defaultValue={this.state.email}
           />
+          </label>
           <br />
-          <label>Country:</label>
+          <label>Country:
           <input
             type="text"
             name="country"
             onChange={this.handleCountry}
             defaultValue={this.state.country}
           />
+          </label>
           <br />
-          <label>About:</label>
+          <label>About:
           <input
             type="text"
             name="about"
             onChange={this.handleAbout}
             defaultValue={this.state.about}
           />
+          </label>
           <br />
-          <label>Instagram:</label>
+          <label>Instagram:
           <input
             type="text"
             name="instagram"
             onChange={this.handleInstagram}
             defaultValue={this.state.instagram}
           />
+          </label>
           <br />
-          <label>Twitter:</label>
+          <label>Twitter:
           <input
             type="text"
             name="twitter"
             onChange={this.handleTwitter}
             defaultValue={this.state.twitter}
           />
+          </label>
           <br />
-          <label>Facebook:</label>
+          <label>Facebook:
           <input
             type="text"
             name="fb"
             onChange={this.handleFB}
             defaultValue={this.state.fb}
           />
+          </label>
           <br />
-          <label>Website:</label>
+          <label>Website:
           <input
             type="text"
             name="website"
             onChange={this.handleWebsite}
             defaultValue={this.state.website}
           />
+          </label>
           <br />
           <button type="submit">Update Profile</button>
         </form>
