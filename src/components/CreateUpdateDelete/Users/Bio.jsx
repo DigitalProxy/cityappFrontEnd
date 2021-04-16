@@ -182,6 +182,9 @@ class Bio extends Component {
     this.setState({ type_id: this.props.item.type_id})
     console.log(this.props.item._id)
     console.log(this.props.item.type_id)
+
+
+
   }
 
   render() {
@@ -302,7 +305,7 @@ class Bio extends Component {
         </Modal> */}
 
         {/* We need three different modals to run here */}
-        <Modal1 callback={() => this.setState({isShowingUpdateModal1: false})} show={this.state.isShowingUpdateModal1} />
+        <Modal1 callback={() => this.setState({isShowingUpdateModal1: false})} item={this.props.item} show={this.state.isShowingUpdateModal1} />
         <Modal2 callback={() => this.setState({isShowingUpdateModal2: false})} item={this.props.item} show={this.state.isShowingUpdateModal2}/>
         <Modal3 callback={() => this.setState({isShowingUpdateModal3: false})} item={this.props.item} show={this.state.isShowingUpdateModal3}/>
       </div>
