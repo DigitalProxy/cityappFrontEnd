@@ -887,3 +887,10 @@ input[type="text"] {
     padding: 10px 20px;
 }
 
+.red-button {
+    font-size: .7rem;
+    color: #CE2E4A;
+    background-color: #D8D0C9;
+    border: #CE2E4A solid 1px;
+    padding: 5px 20px;
+}

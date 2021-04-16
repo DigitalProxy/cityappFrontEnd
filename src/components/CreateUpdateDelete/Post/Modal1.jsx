@@ -14,7 +14,7 @@ class Modal1 extends Component {
         <div style={{ display: this.props.show ? 'flex' : 'none' }} className="Modal">
             <div  className="ModalContent ">
             <h1></h1>
-                <button style={spacing} onClick={() => this.props.callback()}>CLOSE</button>
+                <button className="red-button" style={spacing} onClick={() => this.props.callback()}>CLOSE</button>
                 <CreatePost item={this.props.item}/>
             </div>
         </div>
