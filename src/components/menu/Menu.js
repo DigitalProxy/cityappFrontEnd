@@ -34,7 +34,9 @@ export default class Menu extends Component {
                 <Link to="/feed/add">
                 <MenuAddIcon classname={this.state.isMenuActive ? "menu-circle add-icon add-icon-animate" : "menu-circle add-icon add-icon-animate-down"} />
                 </Link>
+                <Link to="/profile">
                 <MenuProfileIcon classname={this.state.isMenuActive ? "menu-circle profile-icon profile-icon-animate" : "menu-circle profile-icon profile-icon-animate-down"} />
+                </Link>
                 <MenuSettingsIcon classname={this.state.isMenuActive ? "menu-circle settings-icon settings-icon-animate" : "menu-circle settings-icon settings-icon-animate-down"} />
                 <MenuIcon toggleMenu={this.toggleMenu} />
             </div>

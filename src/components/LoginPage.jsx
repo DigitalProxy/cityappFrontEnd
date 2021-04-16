@@ -163,7 +163,7 @@ export default class LoginPage extends Component {
           <Link
             onClick={this.shipUserName}
             state={{ username: this.props.username }}
-            to="/profile"
+            to="/feed"
           > <input style={loginButton} type="submit" value="LOG IN"></input>
           </Link>
 

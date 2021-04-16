@@ -106,7 +106,7 @@ class FeedCard extends Component {
 
                 <div style={socialStyle}>
                   <div style={socialStyle}>
-                    <Link style={spacing} to="/like">
+                    <div style={spacing}>
                       <svg
                         style={spacing}
                         width="16"
@@ -151,9 +151,9 @@ class FeedCard extends Component {
                       <p style={randomStats}>
                         {Math.floor(Math.random() * 150 + 1)}
                       </p>
-                    </Link>
+                    </div>
                     <br />
-                    <Link style={spacing} to="/comment">
+                    <div style={spacing}>
                       <svg
                         style={spacing}
                         width="16"
@@ -186,13 +186,13 @@ class FeedCard extends Component {
                       <p style={randomStats}>
                         {Math.floor(Math.random() * 24 + 1)}
                       </p>
-                    </Link>
+                    </div>
                   </div>
                   <div style={shareStyle}>
                     <br />
-                    <Link style={linkStyle} to="/share">
+                    <div style={linkStyle}>
                       <strong>SHARE</strong>{" "}
-                    </Link>
+                    </div>
                   </div>
                 </div>
                 <hr />
