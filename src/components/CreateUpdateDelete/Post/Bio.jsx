@@ -1,9 +1,10 @@
 //**BIO**
 import React, { Component } from "react";
-import CreateModal from "../Post/CreateModal";
-// import axios from "axios";
+import axios from "axios";
 // import { Router, Link, navigate } from "@reach/router";
-
+// import User from "../Users/User";
+// import FeedModal from "./FeedModal.js";
+import Modal from "./Modal";
 
 // CSS INLINE STYLES
 var imageSpacing = {
@@ -103,30 +104,38 @@ class Bio extends Component {
       show: false,
       isShowingUpdateModal: false,
     };
-    // this.showModal = this.showModal.bind(this);
-    // this.hideModal = this.hideModal.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
 
   refreshPage() {
     window.location.reload(false);
   }
 
-  // openDeleteModal = (e) => {
-  //   this.setState({ modal: true });
-  // };
+  openDeleteModal = (e) => {
+    this.setState({ modal: true });
+  };
 
-  // deletePost = (e) => {
-  //   console.log(this.props.item._id);
-  //   axios
-  //     .delete(`http://localhost:4000/api/bss_username/${this.props.item._id}`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       if (res.statusText === "OK") {
-  //         alert("Successful Deletion");
-  //       } else {
-  //         alert("Nothing was Deleted");
-  //       }
-  //     });
+  deletePost = (e) => {
+    console.log(this.props.item._id);
+    axios
+      .delete(`http://localhost:4000/api/bss_username/${this.props.item._id}`)
+      .then((res) => {
+        console.log(res);
+        if (res.statusText === "OK") {
+          alert("Successful Deletion");
+        } else {
+          alert("Nothing was Deleted");
+        }
+      });
 
     // console.log(this.props.item._id)
     // axios.delete(`http://localhost:4000/api/bss_username/${this.props.item.title}`).then(
@@ -139,23 +148,13 @@ class Bio extends Component {
     //     }
     //   }
     // );
-  
+  };
 
-  // shipID = (evt) => {
-  //   console.log(this.props.type_id);
-  //   this.setState({ type_id: this.props.type_id });
-  //   localStorage.setItem("type_id", this.state.type_id);
-  //   // localStorage.setItem("username", this.state.username)
-  // };
-
-  shipDetails = (evt) => {
-    this.setState({ type_id: this.props.type_id });
-    this.setState({ _id: this.props._id });
+  shipID = (evt) => {
     console.log(this.props.type_id);
-    console.log(this.props._id);
+    this.setState({ type_id: this.props.type_id });
     localStorage.setItem("type_id", this.state.type_id);
-    this.updateModal()
-    //open the modal here as well
+    // localStorage.setItem("username", this.state.username)
   };
 
   updateModal = (evt) => {
@@ -165,7 +164,7 @@ class Bio extends Component {
   render() {
     return (
       <div style={bgColor}>
-        
+        <div></div>
 
         <svg
           style={eyeSee}
@@ -223,14 +222,10 @@ class Bio extends Component {
         <h1 style={titleSpacing}>{this.props.item.title}</h1>
         <h1 style={userSpacing}>{this.props.item.username}</h1>
 
-        {/* THIS IS WHERE THE POST BUTTONS ARE 
-        _id and type_id ship to create/update/delete*/}
-        <button style={buttons} onClick={this.shipDetails}>
-        UPDATE</button>
-        <button style={buttons} onClick={this.shipDetails}>
-        DELETE</button>
-        <button style={buttons} onClick={this.shipDetails}>
-        UPDATE</button>
+        <button style={buttons} onClick={this.updateModal}>UPDATE</button>
+        <button style={deleteButton} onClick={this.shipID}>
+          DELETE
+        </button>
 
         <svg
           style={logoBottom}
@@ -271,15 +266,8 @@ class Bio extends Component {
         </svg>
 
         <div style={footer}></div>
-                {/* <Modal showmodal={this.state.showmodal} onClose={this.onClose}>
-          <h1>New Post</h1>
-          <h1>Complete</h1>
-          <p>
-            {this.state.username} {this.state.title} has been added.
-          </p>
-        </Modal> */}
 
-        {/* We need three different modals to run here */}
+        {/* <h1>MODAL</h1> */}
         <Modal callback={() => this.setState({isShowingUpdateModal: false})} show={this.state.isShowingUpdateModal}/>
       </div>
     );
