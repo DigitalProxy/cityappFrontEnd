@@ -18,7 +18,7 @@ export default class MenuLogIn extends Component {
         return (
 
                 
-            <Link to="/login" classname={this.props.classname}>
+            <Link to="/" classname={this.props.classname}>
                 <button className={this.props.classname}>Log In</button>
             </Link>
             

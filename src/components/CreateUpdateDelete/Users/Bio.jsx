@@ -138,7 +138,6 @@ class Bio extends Component {
     return (
       <div style={bgColor}>
         
-
         <svg
           style={eyeSee}
           width="369"
