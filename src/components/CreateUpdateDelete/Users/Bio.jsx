@@ -93,6 +93,16 @@ var deleteButton = {
   bottom: "70px",
 }
 
+var updateButton = {
+  backgroundColor: "#FF5F5F",
+  color: "white",
+  border: "0px",
+  padding: "5px",
+  marginLeft: "35px",
+  position: "absolute",
+  bottom: "100px",
+}
+
 class Bio extends Component {
   constructor(props) {
     super(props);
@@ -196,9 +206,9 @@ class Bio extends Component {
 
         <button style={buttons} onClick={this.updateModal1}>
         CREATE</button>
-        <button style={deleteButton} onClick={this.updateModal2}>
+        <button style={updateButton} onClick={this.updateModal2}>
         UPDATE</button>
-        <button className="delete-btn" onClick={this.updateModal3}>
+        <button style={deleteButton} className="delete-btn" onClick={this.updateModal3}>
         DELETE</button>
 
         <svg

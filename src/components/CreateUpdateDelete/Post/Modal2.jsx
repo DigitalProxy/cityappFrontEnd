@@ -3,8 +3,9 @@ import UpdatePost from "./UpdatePost";
 
 var spacing = {
   position: "absolute",
-  right: "43%",
+  right: "50%",
   top: "80px",
+  transform: `translate(${50}%, ${50}%)` 
 }
 
 class Modal2 extends Component {

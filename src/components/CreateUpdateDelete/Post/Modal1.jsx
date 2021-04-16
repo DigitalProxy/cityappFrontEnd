@@ -3,7 +3,7 @@ import CreatePost from "./CreatePost";
 
 var spacing = {
   // position: "absolute",
-  marginLeft: "43%",
+  marginLeft: "50%",
   marginTop: "20px",
   marginBottom: "20px",
 }

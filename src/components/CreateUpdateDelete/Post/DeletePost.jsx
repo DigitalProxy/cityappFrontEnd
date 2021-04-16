@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Axios from "axios";
 
+var spacing = {
+  margin: "0 50px"
+}
+
 export default class DeleteModal extends Component {
   constructor(props) {
     super(props);
@@ -61,7 +65,7 @@ export default class DeleteModal extends Component {
   render() {
     return (
       <div className="form-wrapper update-profile">
-        <h1>Are you sure you want to delete this post?</h1>
+        <h1 style={spacing}>Are you sure you want to delete this post?</h1>
         <h3></h3>
 
         <button onClick={this.deletePost}>DELETE ME!</button>

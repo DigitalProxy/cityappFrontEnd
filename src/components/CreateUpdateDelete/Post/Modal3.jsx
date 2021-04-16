@@ -3,8 +3,10 @@ import DeletePost from "./DeletePost"
 
 var spacing = {
   position: "absolute",
-  right: "43%",
+  right: "50%",
   top: "20px",
+  // width: "200px",
+  transform: `translate(${50}%, ${50}%)` 
 }
 
 class Modal3 extends Component {
